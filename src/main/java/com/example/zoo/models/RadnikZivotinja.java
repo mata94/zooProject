@@ -15,11 +15,11 @@ public class RadnikZivotinja {
     @ManyToOne()
     @JoinColumn(name="zivotinja_id")
     private Zivotnja zivotnja;
-    private boolean cijena;
+    private float cijena;
 
     public RadnikZivotinja(){}
 
-    public RadnikZivotinja(Long id, String opis, Radnik radnik, Zivotnja zivotnja, boolean cijena) {
+    public RadnikZivotinja(Long id, String opis, Radnik radnik, Zivotnja zivotnja, float cijena) {
         this.id = id;
         this.opis = opis;
         this.radnik = radnik;
@@ -59,11 +59,11 @@ public class RadnikZivotinja {
         this.zivotnja = zivotnja;
     }
 
-    public boolean isCijena() {
+    public float getCijena() {
         return cijena;
     }
 
-    public void setCijena(boolean cijena) {
+    public void setCijena(float cijena) {
         this.cijena = cijena;
     }
 }
