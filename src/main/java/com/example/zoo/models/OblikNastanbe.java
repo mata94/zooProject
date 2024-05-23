@@ -1,11 +1,9 @@
 package com.example.zoo.models;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Entity
-public class TipNastanbe {
+public class OblikNastanbe {
 
     @Id
     @GeneratedValue
@@ -13,9 +11,8 @@ public class TipNastanbe {
 
     private String naziv;
 
-    public TipNastanbe(){}
-
-    public TipNastanbe(Long id, String naziv) {
+    private OblikNastanbe(){}
+    public OblikNastanbe(Long id, String naziv) {
         this.id = id;
         this.naziv = naziv;
     }
@@ -32,7 +29,7 @@ public class TipNastanbe {
         return naziv;
     }
 
-    public void setNaziv(String name) {
-        this.naziv = name;
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
     }
 }
