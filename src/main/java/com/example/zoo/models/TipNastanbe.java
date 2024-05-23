@@ -10,9 +10,7 @@ public class TipNastanbe {
     @Id
     @GeneratedValue
     private Long id;
-
     private String naziv;
-
     public TipNastanbe(){}
 
     public TipNastanbe(Long id, String naziv) {
