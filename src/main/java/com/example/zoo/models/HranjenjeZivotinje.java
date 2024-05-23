@@ -1,12 +1,13 @@
 package com.example.zoo.models;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalTime;
-
-public class HranjenjeZivotinje {
-    private Long idHranjenjaZivotinja;
+@Entity
+public class HranjenjeZivotinje{
+    @Id
+    @GeneratedValue
+    private Long id;
     @ManyToOne
     @JoinColumn(name="radnikId")
     private Radnik radnik;
@@ -16,27 +17,32 @@ public class HranjenjeZivotinje {
     private LocalTime datumHranjenja;
     private boolean nahranjena;
 
-    private HranjenjeZivotinje()
+    public HranjenjeZivotinje()
     {
 
     }
 
+
+
+
     public HranjenjeZivotinje(Long idHranjenjaZivotinja,
                               Radnik radnik, Zivotnja zivotnja,
                               LocalTime datumHranjenja, boolean nahranjena) {
-        this.idHranjenjaZivotinja = idHranjenjaZivotinja;
+        this.id = id;
         this.radnik = radnik;
         this.zivotnja = zivotnja;
         this.datumHranjenja = datumHranjenja;
         this.nahranjena = nahranjena;
     }
 
-    public Long getIdHranjenjaZivotinja() {
-        return idHranjenjaZivotinja;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setIdHranjenjaZivotinja(Long idHranjenjaZivotinja) {
-        this.idHranjenjaZivotinja = idHranjenjaZivotinja;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Radnik getRadnik() {
