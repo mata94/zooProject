@@ -13,7 +13,7 @@ public class HranjenjeZivotinje{
     private Radnik radnik;
     @ManyToOne
     @JoinColumn(name="zivotinjaId")
-    private Zivotnja zivotnja;
+    private Zivotinja zivotinja;
     private LocalTime datumHranjenja;
     private boolean nahranjena;
 
@@ -26,11 +26,11 @@ public class HranjenjeZivotinje{
 
 
     public HranjenjeZivotinje(Long idHranjenjaZivotinja,
-                              Radnik radnik, Zivotnja zivotnja,
+                              Radnik radnik, Zivotinja zivotnja,
                               LocalTime datumHranjenja, boolean nahranjena) {
         this.id = id;
         this.radnik = radnik;
-        this.zivotnja = zivotnja;
+        this.zivotinja = zivotnja;
         this.datumHranjenja = datumHranjenja;
         this.nahranjena = nahranjena;
     }
@@ -53,12 +53,12 @@ public class HranjenjeZivotinje{
         this.radnik = radnik;
     }
 
-    public Zivotnja getZivotnja() {
-        return zivotnja;
+    public Zivotinja getZivotnja() {
+        return zivotinja;
     }
 
-    public void setZivotnja(Zivotnja zivotnja) {
-        this.zivotnja = zivotnja;
+    public void setZivotnja(Zivotinja zivotinja) {
+        this.zivotinja = zivotinja;
     }
 
     public LocalTime getDatumHranjenja() {

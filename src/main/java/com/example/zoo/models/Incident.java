@@ -14,7 +14,7 @@ public class Incident {
     private VrstaIncidenta vrstaIncidenta;
     @ManyToOne
     @JoinColumn(name="zivotinja_id")
-    private Zivotnja zivotnja;
+    private Zivotinja zivotinja;
     @ManyToOne
     @JoinColumn(name="nastamba_id")
     private Nastanba nastanba;
@@ -26,15 +26,15 @@ public class Incident {
 
     public Incident()
     {
-        
+
     }
 
-    public Incident(Long id, VrstaIncidenta vrstaIncidenta, Zivotnja zivotnja,
+    public Incident(Long id, VrstaIncidenta vrstaIncidenta, Zivotinja zivotinja,
                     Nastanba nastanba, String komentar,
                     String popravak, Date datum) {
         this.id = id;
         this.vrstaIncidenta = vrstaIncidenta;
-        this.zivotnja = zivotnja;
+        this.zivotinja = zivotinja;
         this.nastanba = nastanba;
         this.komentar = komentar;
         this.popravak = popravak;
@@ -57,12 +57,12 @@ public class Incident {
         this.vrstaIncidenta = vrstaIncidenta;
     }
 
-    public Zivotnja getZivotnja() {
-        return zivotnja;
+    public Zivotinja getZivotinja() {
+        return zivotinja;
     }
 
-    public void setZivotnja(Zivotnja zivotnja) {
-        this.zivotnja = zivotnja;
+    public void setZivotinja(Zivotinja zivotinja) {
+        this.zivotinja = zivotinja;
     }
 
     public Nastanba getNastanba() {

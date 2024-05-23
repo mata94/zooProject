@@ -14,16 +14,16 @@ public class RadnikZivotinja {
     private Radnik radnik;
     @ManyToOne()
     @JoinColumn(name="zivotinja_id")
-    private Zivotnja zivotnja;
+    private Zivotinja zivotinja;
     private float cijena;
 
     public RadnikZivotinja(){}
 
-    public RadnikZivotinja(Long id, String opis, Radnik radnik, Zivotnja zivotnja, float cijena) {
+    public RadnikZivotinja(Long id, String opis, Radnik radnik, Zivotinja zivotnja, float cijena) {
         this.id = id;
         this.opis = opis;
         this.radnik = radnik;
-        this.zivotnja = zivotnja;
+        this.zivotinja = zivotnja;
         this.cijena = cijena;
     }
 
@@ -51,12 +51,12 @@ public class RadnikZivotinja {
         this.radnik = radnik;
     }
 
-    public Zivotnja getZivotnja() {
-        return zivotnja;
+    public Zivotinja getZivotinja() {
+        return zivotinja;
     }
 
-    public void setZivotnja(Zivotnja zivotnja) {
-        this.zivotnja = zivotnja;
+    public void setZivotnja(Zivotinja zivotnja) {
+        this.zivotinja = zivotinja;
     }
 
     public float getCijena() {
