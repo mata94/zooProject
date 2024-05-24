@@ -11,17 +11,17 @@ public class VrstaZivotinje {
     @GeneratedValue
     private Long id;
 
-    private String ime_hrv;
-    private String ime_eng;
-    private String ime_lat;
+    private String imeHrv;
+    private String imeEng;
+    private String imeLat;
 
     public VrstaZivotinje(){}
 
-    public VrstaZivotinje(Long id, String ime_hrv, String ime_eng, String ime_lat) {
+    public VrstaZivotinje(Long id, String imeHrv, String imeEng, String imeLat) {
         this.id = id;
-        this.ime_hrv = ime_hrv;
-        this.ime_eng = ime_eng;
-        this.ime_lat = ime_lat;
+        this.imeHrv = imeHrv;
+        this.imeEng = imeEng;
+        this.imeLat = imeLat;
     }
 
     public Long getId() {
@@ -32,27 +32,27 @@ public class VrstaZivotinje {
         this.id = id;
     }
 
-    public String getIme_hrv() {
-        return ime_hrv;
+    public String getImeHrv() {
+        return imeHrv;
     }
 
-    public void setIme_hrv(String ime_hrv) {
-        this.ime_hrv = ime_hrv;
+    public void setImeHrv(String ime_hrv) {
+        this.imeHrv = ime_hrv;
     }
 
-    public String getIme_eng() {
-        return ime_eng;
+    public String getImeEng() {
+        return imeEng;
     }
 
-    public void setIme_eng(String ime_eng) {
-        this.ime_eng = ime_eng;
+    public void setImeEng(String ime_eng) {
+        this.imeEng = ime_eng;
     }
 
-    public String getIme_lat() {
-        return ime_lat;
+    public String getImeLat() {
+        return imeLat;
     }
 
-    public void setIme_lat(String ime_lat) {
-        this.ime_lat = ime_lat;
+    public void setImeLat(String ime_lat) {
+        this.imeLat = ime_lat;
     }
 }
