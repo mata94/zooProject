@@ -3,7 +3,6 @@ package com.example.zoo.Controllers;
 import com.example.zoo.Service.VrstaZivotinjeService;
 import com.example.zoo.models.VrstaZivotinje;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.AccessType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

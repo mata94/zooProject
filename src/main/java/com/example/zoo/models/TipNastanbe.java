@@ -31,6 +31,6 @@ public class TipNastanbe {
     }
 
     public void setNaziv(String name) {
-        this.naziv = name;
+        this.naziv = naziv;
     }
 }
