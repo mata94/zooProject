@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Radnik</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Radnik</h2>
+    <form action="#" th:action="@{/unosRadnika}" th:object="${radnik}" method="post">
+
+        <div class="form-group">
+            <label for="ime">Ime:</label>
+            <input type="text" class="form-control" id="ime" th:field="*{ime}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="prezime">Prezime:</label>
+            <input type="text" class="form-control" id="prezime" th:field="*{prezime}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="kvalifikacija">Kvalifikacija:</label>
+            <select class="form-control" id="kvalifikacija" th:field="*{kvalifikacija}">
+                <option value="">Select Kvalifikacija</option>
+                <!-- Iterate over kvalifikacijaList to populate options -->
+                <option th:each="kvalifikacija : ${kvalifikacijaList}" th:value="${kvalifikacija.id}" th:text="${kvalifikacija.naziv}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
