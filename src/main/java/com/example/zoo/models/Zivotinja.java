@@ -1,6 +1,7 @@
 package com.example.zoo.models;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -19,7 +20,6 @@ public class Zivotinja {
     @JoinColumn(name = "nastanba_id")
     private Nastanba nastanba;
     private boolean postojanjeZivotinje;
-    private Date dolazakZivotinje;
 
     @ManyToOne
     @JoinColumn(name = "vrstaZivotinje")
@@ -33,7 +33,7 @@ public class Zivotinja {
 
     }
 
-    public Zivotinja(Long id, String naziv, Integer indentifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, Date dolazakZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje) {
+    public Zivotinja(Long id, String naziv, Integer indentifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje) {
         this.id = id;
         this.naziv = naziv;
         this.indentifikator = indentifikator;
@@ -41,7 +41,6 @@ public class Zivotinja {
         this.brojZivotnja = brojZivotnja;
         this.nastanba = nastanba;
         this.postojanjeZivotinje = postojanjeZivotinje;
-        this.dolazakZivotinje = dolazakZivotinje;
         this.vrstaZivotinje = vrstaZivotinje;
         this.porijekloZivotinje = porijekloZivotinje;
     }
@@ -100,14 +99,6 @@ public class Zivotinja {
 
     public void setPostojanjeZivotinje(boolean postojanjeZivotinje) {
         this.postojanjeZivotinje = postojanjeZivotinje;
-    }
-
-    public Date getDolazakZivotinje() {
-        return dolazakZivotinje;
-    }
-
-    public void setDolazakZivotinje(Date dolazakZivotinje) {
-        this.dolazakZivotinje = dolazakZivotinje;
     }
 
     public VrstaZivotinje getVrstaZivotinje() {
