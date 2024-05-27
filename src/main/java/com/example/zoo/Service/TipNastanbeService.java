@@ -5,6 +5,8 @@ import com.example.zoo.repository.TipNastanbeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TipNastanbeService {
 
@@ -15,4 +17,9 @@ public class TipNastanbeService {
     public void createTip(TipNastanbe tipNastanbe){
         this.tipNastanbeRepository.save(tipNastanbe);
     }
+
+    public List<TipNastanbe> findAll(){
+        return tipNastanbeRepository.findAll();
+    }
+
 }
