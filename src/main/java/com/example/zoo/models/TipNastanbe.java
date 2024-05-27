@@ -30,7 +30,7 @@ public class TipNastanbe {
         return naziv;
     }
 
-    public void setNaziv(String name) {
+    public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 }

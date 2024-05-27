@@ -18,10 +18,10 @@ public class NastanbaController {
     @Autowired
     NastanbaService nastanbaService;
 
-
+    @Autowired
     private TipNastanbeService tipNastanbeService;
 
-
+    @Autowired
     private OblikNastanbeService oblikNastanbeService;
 
     @GetMapping("/Nastanba")
