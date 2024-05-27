@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Incident</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Incident</h2>
+    <form th:action="@{/unosIncidenta}" th:object="${incident}" method="post">
+
+        <div class="form-group">
+            <label for="vrstaIncidenta">Vrsta Incidenta:</label>
+            <select class="form-control" id="vrstaIncidenta" th:field="*{vrstaIncidenta}">
+                <option value="">Select Vrsta Incidenta</option>
+                <!-- Iterate over vrstaIncidentaList to populate options -->
+                <option th:each="vrsta : ${vrstaIncidentaList}" th:value="${vrsta.id}" th:text="${vrsta.naziv}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="zivotinja">Zivotinja:</label>
+            <select class="form-control" id="zivotinja" th:field="*{zivotinja}">
+                <option value="">Select Zivotinja</option>
+                <!-- Iterate over zivotinjaList to populate options -->
+                <option th:each="zivotinja : ${zivotinjaList}" th:value="${zivotinja.id}" th:text="${zivotinja.ime}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nastanba">Nastanba:</label>
+            <select class="form-control" id="nastanba" th:field="*{nastanba}">
+                <option value="">Select Nastanba</option>
+                <!-- Iterate over nastanbaList to populate options -->
+                <option th:each="nastanba : ${nastanbaList}" th:value="${nastanba.id}" th:text="${nastanba.naziv}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="komentar">Komentar:</label>
+            <input type="text" class="form-control" id="komentar" th:field="*{komentar}">
+        </div>
+
+        <div class="form-group">
+            <label for="popravak">Popravak:</label>
+            <input type="text" class="form-control" id="popravak" th:field="*{popravak}">
+        </div>
+
+        <div class="form-group">
+            <label for="datum">Datum:</label>
+            <input type="date" class="form-control" id="datum" th:field="*{datum}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
