@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-
 public class TipNastanbeController {
+
     @Autowired
     TipNastanbeService tipNastanbeService;
+
     @GetMapping("/tipNastanbe")
     public String createTipForm(Model model){
         TipNastanbe tip = new TipNastanbe();
@@ -24,9 +25,8 @@ public class TipNastanbeController {
     }
 
     @PostMapping("/tipNastanbe")
-    public String createTip(Model model,TipNastanbe tipNastanbe){
+    public String createTip(TipNastanbe tipNastanbe){
         this.tipNastanbeService.createTip(tipNastanbe);
-
         return "redirect:/tipNastanbe";
     }
 }

@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="tipNastanbe">Tip Nastanbe:</label>
             <select class="form-control" id="tipNastanbe" th:field="*{tipNastanbe}">
-                <option th:each="tip : ${tipNastanbeList}" th:value="${tip}" th:text="${tip.naziv}"></option>
+                <option th:each="tip : ${tipNastanbeList}" th:value="${tip.id}" th:text="${tip.naziv}"></option>
             </select>
         </div>
         <div class="form-group">
@@ -29,7 +29,7 @@
         <div class="form-group">
             <label for="oblikNastanbe">Oblik Nastanbe:</label>
             <select class="form-control" id="oblikNastanbe" th:field="*{oblikNastanbe}">
-                <option th:each="oblik : ${oblikNastanbeList}" th:value="${oblik}" th:text="${oblik.naziv}"></option>
+                <option th:each="oblik : ${oblikNastanbeList}" th:value="${oblik.id}" th:text="${oblik.naziv}"></option>
             </select>
         </div>
         <div class="form-group">

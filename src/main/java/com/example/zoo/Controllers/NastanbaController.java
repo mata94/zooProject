@@ -5,7 +5,6 @@ import com.example.zoo.Service.NastanbaService;
 import com.example.zoo.Service.OblikNastanbeService;
 import com.example.zoo.Service.TipNastanbeService;
 import com.example.zoo.models.Nastanba;
-import com.example.zoo.models.OblikNastanbe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +23,8 @@ public class NastanbaController {
     @Autowired
     private OblikNastanbeService oblikNastanbeService;
 
+
+
     @GetMapping("/Nastanba")
     public String createNastanbaForm(Model model){
         Nastanba nastanba = new Nastanba();
@@ -33,7 +34,6 @@ public class NastanbaController {
 
         return "Nastanba/createNastanba";
     }
-
 
     @PostMapping("/Nastanba")
     public String createNastanba(Model model, Nastanba nastanba){

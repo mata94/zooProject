@@ -9,7 +9,7 @@ public class Nastanba {
     @GeneratedValue
     private Long id;
     private String naziv;
-    private Long brojcanaLokacija;
+    private Integer brojcanaLokacija;
     @ManyToOne
     @JoinColumn(name ="tipNastanbe_id")
     private TipNastanbe tipNastanbe;
@@ -21,7 +21,7 @@ public class Nastanba {
 
     public Nastanba(){}
 
-    public Nastanba(Long id, String naziv, Long brojcanaLokacija, TipNastanbe tipNastanbe, String mjestoPromatranja, OblikNastanbe oblikNastanbe, String strukturaNastanbe) {
+    public Nastanba(Long id, String naziv, Integer brojcanaLokacija, TipNastanbe tipNastanbe, String mjestoPromatranja, OblikNastanbe oblikNastanbe, String strukturaNastanbe) {
         this.id = id;
         this.naziv = naziv;
         this.brojcanaLokacija = brojcanaLokacija;
@@ -47,11 +47,11 @@ public class Nastanba {
         this.naziv = naziv;
     }
 
-    public Long getBrojcanaLokacija() {
+    public Integer getBrojcanaLokacija() {
         return brojcanaLokacija;
     }
 
-    public void setBrojcanaLokacija(Long brojcanaLokacija) {
+    public void setBrojcanaLokacija(Integer brojcanaLokacija) {
         this.brojcanaLokacija = brojcanaLokacija;
     }
 
