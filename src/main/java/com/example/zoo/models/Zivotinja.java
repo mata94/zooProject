@@ -28,12 +28,14 @@ public class Zivotinja {
     @JoinColumn(name = "porijekloZivotinjeId")
     private PorijekloZivotinje porijekloZivotinje;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dolazakZivotinje;
     public Zivotinja()
     {
 
     }
 
-    public Zivotinja(Long id, String naziv, Integer indentifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje) {
+    public Zivotinja(Long id, String naziv, Integer indentifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje,Date dolazakZivotinje) {
         this.id = id;
         this.naziv = naziv;
         this.indentifikator = indentifikator;
@@ -43,6 +45,7 @@ public class Zivotinja {
         this.postojanjeZivotinje = postojanjeZivotinje;
         this.vrstaZivotinje = vrstaZivotinje;
         this.porijekloZivotinje = porijekloZivotinje;
+        this.dolazakZivotinje = dolazakZivotinje;
     }
 
     public Long getId() {
@@ -115,5 +118,13 @@ public class Zivotinja {
 
     public void setPorijekloZivotinje(PorijekloZivotinje porijekloZivotinje) {
         this.porijekloZivotinje = porijekloZivotinje;
+    }
+
+    public Date getDolazakZivotinje() {
+        return dolazakZivotinje;
+    }
+
+    public void setDolazakZivotinje(Date dolazakZivotinje) {
+        this.dolazakZivotinje = dolazakZivotinje;
     }
 }

@@ -18,12 +18,10 @@ public class NastanbaController {
     NastanbaService nastanbaService;
 
     @Autowired
-    private TipNastanbeService tipNastanbeService;
+    TipNastanbeService tipNastanbeService;
 
     @Autowired
-    private OblikNastanbeService oblikNastanbeService;
-
-
+    OblikNastanbeService oblikNastanbeService;
 
     @GetMapping("/Nastanba")
     public String createNastanbaForm(Model model){
