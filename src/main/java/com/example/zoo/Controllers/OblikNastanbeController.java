@@ -19,7 +19,7 @@ public class OblikNastanbeController {
         OblikNastanbe oblik = new OblikNastanbe();
         model.addAttribute("oblik", oblik);
 
-        return "OblikNastanbe/createOblik";
+        return "OblikNastanbe/CreateOblik";
     }
 
 
