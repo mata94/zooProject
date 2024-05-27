@@ -10,43 +10,40 @@ public class Zivotinja {
     @Id
     @GeneratedValue
     private Long id;
-    private Long indetifikator;
+
+    private String naziv;
+    private Integer indentifikator;
     private boolean skupZivotinja;
-    private Long brojZivotnja;
+    private Integer brojZivotnja;
     @ManyToOne
     @JoinColumn(name = "nastanba_id")
     private Nastanba nastanba;
     private boolean postojanjeZivotinje;
     private Date dolazakZivotinje;
 
-
-
     @ManyToOne
     @JoinColumn(name = "vrstaZivotinje")
-    private VrstaZivotinje vrstaZivotinja;
+    private VrstaZivotinje vrstaZivotinje;
     @ManyToOne
     @JoinColumn(name = "porijekloZivotinjeId")
-    private PorijekloZivotinje porijekloZivotinj;
+    private PorijekloZivotinje porijekloZivotinje;
 
     public Zivotinja()
     {
 
     }
 
-    public Zivotinja(Long id, Long indetifikator, boolean skupZivotinja,
-                     Long brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje,
-                     Date dolazakZivotinje,
-                     VrstaZivotinje vrstaZivotinja,
-                     PorijekloZivotinje porijekloZivotinj) {
+    public Zivotinja(Long id, String naziv, Integer indentifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, Date dolazakZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje) {
         this.id = id;
-        this.indetifikator = indetifikator;
+        this.naziv = naziv;
+        this.indentifikator = indentifikator;
         this.skupZivotinja = skupZivotinja;
         this.brojZivotnja = brojZivotnja;
         this.nastanba = nastanba;
         this.postojanjeZivotinje = postojanjeZivotinje;
         this.dolazakZivotinje = dolazakZivotinje;
-        this.vrstaZivotinja = vrstaZivotinja;
-        this.porijekloZivotinj = porijekloZivotinj;
+        this.vrstaZivotinje = vrstaZivotinje;
+        this.porijekloZivotinje = porijekloZivotinje;
     }
 
     public Long getId() {
@@ -57,12 +54,20 @@ public class Zivotinja {
         this.id = id;
     }
 
-    public Long getIndetifikator() {
-        return indetifikator;
+    public String getNaziv() {
+        return naziv;
     }
 
-    public void setIndetifikator(Long indetifikator) {
-        this.indetifikator = indetifikator;
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    public Integer getIndentifikator() {
+        return indentifikator;
+    }
+
+    public void setIndentifikator(Integer indentifikator) {
+        this.indentifikator = indentifikator;
     }
 
     public boolean isSkupZivotinja() {
@@ -73,11 +78,11 @@ public class Zivotinja {
         this.skupZivotinja = skupZivotinja;
     }
 
-    public Long getBrojZivotnja() {
+    public Integer getBrojZivotnja() {
         return brojZivotnja;
     }
 
-    public void setBrojZivotnja(Long brojZivotnja) {
+    public void setBrojZivotnja(Integer brojZivotnja) {
         this.brojZivotnja = brojZivotnja;
     }
 
@@ -105,19 +110,19 @@ public class Zivotinja {
         this.dolazakZivotinje = dolazakZivotinje;
     }
 
-    public VrstaZivotinje getVrstaZivotinja() {
-        return vrstaZivotinja;
+    public VrstaZivotinje getVrstaZivotinje() {
+        return vrstaZivotinje;
     }
 
-    public void setVrstaZivotinja(VrstaZivotinje vrstaZivotinja) {
-        this.vrstaZivotinja = vrstaZivotinja;
+    public void setVrstaZivotinje(VrstaZivotinje vrstaZivotinje) {
+        this.vrstaZivotinje = vrstaZivotinje;
     }
 
-    public PorijekloZivotinje getPorijekloZivotinj() {
-        return porijekloZivotinj;
+    public PorijekloZivotinje getPorijekloZivotinje() {
+        return porijekloZivotinje;
     }
 
-    public void setPorijekloZivotinj(PorijekloZivotinje porijekloZivotinj) {
-        this.porijekloZivotinj = porijekloZivotinj;
+    public void setPorijekloZivotinje(PorijekloZivotinje porijekloZivotinje) {
+        this.porijekloZivotinje = porijekloZivotinje;
     }
 }

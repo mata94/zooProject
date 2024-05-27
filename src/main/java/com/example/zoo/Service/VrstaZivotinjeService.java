@@ -5,6 +5,8 @@ import com.example.zoo.repository.VrstaZivotinjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VrstaZivotinjeService {
 
@@ -13,5 +15,9 @@ public class VrstaZivotinjeService {
 
     public void createVrsta(VrstaZivotinje vrstaZivotinje){
         this.vrstaZivotinjeRepository.save(vrstaZivotinje);
+    }
+
+    public List<VrstaZivotinje> findAll(){
+        return this.vrstaZivotinjeRepository.findAll();
     }
 }
