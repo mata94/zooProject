@@ -1,6 +1,7 @@
 package com.example.zoo.models;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -22,6 +23,7 @@ public class Incident {
     private String komentar;
 
     private String popravak;
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date datum;
 
     public Incident()
