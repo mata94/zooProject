@@ -13,7 +13,7 @@ public class OblikNastanbe {
 
     private String naziv;
 
-    private OblikNastanbe(){}
+    public OblikNastanbe(){}
     public OblikNastanbe(Long id, String naziv) {
         this.id = id;
         this.naziv = naziv;

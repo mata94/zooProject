@@ -2,7 +2,7 @@ package com.example.zoo.Controllers;
 
 import com.example.zoo.Service.PorijekloZivotinjeService;
 import com.example.zoo.models.PorijekloZivotinje;
-import com.example.zoo.models.TipNastanbe;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

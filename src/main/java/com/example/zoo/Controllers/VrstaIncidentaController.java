@@ -1,8 +1,8 @@
 package com.example.zoo.Controllers;
 
-import com.example.zoo.Service.TipNastanbeService;
+
 import com.example.zoo.Service.VrstaIncidentaService;
-import com.example.zoo.models.TipNastanbe;
+
 import com.example.zoo.models.VrstaIncidenta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
