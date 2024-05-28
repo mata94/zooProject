@@ -1,18 +1,16 @@
 package com.example.zoo.Controllers;
 
-import com.example.zoo.Service.NastanbaService;
-import com.example.zoo.Service.PorijekloZivotinjeService;
-import com.example.zoo.Service.VrstaZivotinjeService;
-import com.example.zoo.Service.ZivotinjaService;
+import com.example.zoo.Service.*;
+import com.example.zoo.models.HranjenjeZivotinje;
 import com.example.zoo.models.Zivotinja;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalTime;
 
 @Controller
 public class ZivotinjaController {
@@ -28,6 +26,12 @@ public class ZivotinjaController {
 
     @Autowired
     PorijekloZivotinjeService porijekloZivotinjeService;
+
+    @Autowired
+    RadnikService radnikService;
+
+    @Autowired
+    HranjenjeZivotinjeService hranjenjeZivotinjeService;
 
 
     @GetMapping("/zivotinja")
@@ -47,6 +51,23 @@ public class ZivotinjaController {
         this.zivotinjaService.create(zivotinja);
 
         return "redirect:/zivotinja";
+    }
+
+    @GetMapping("/hranjenjeZivotinje")
+    public String hranjenjeZivotinje(Model model){
+        model.addAttribute("hranjenja",this.hranjenjeZivotinjeService.findAll());
+        return "Zivotinja/listHranjenjeZivotinje";
+    }
+    @PostMapping("/hranjenje/{id}/nahrani")
+    public String createHranjenjeZivotinje(@PathVariable Long id){
+
+        HranjenjeZivotinje hranjenjeZivotinje = this.hranjenjeZivotinjeService.findById(id);
+        hranjenjeZivotinje.setNahranjena(true);
+        hranjenjeZivotinje.setVrijemeHranjenja(LocalTime.now());
+
+        this.hranjenjeZivotinjeService.create(hranjenjeZivotinje);
+
+        return "redirect:/hranjenjeZivotinje";
     }
 
 }

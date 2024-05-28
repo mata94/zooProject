@@ -2,6 +2,7 @@ package com.example.zoo.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 @Entity
 public class HranjenjeZivotinje{
@@ -9,12 +10,11 @@ public class HranjenjeZivotinje{
     @GeneratedValue
     private Long id;
     @ManyToOne
-    @JoinColumn(name="radnikId")
-    private Radnik radnik;
-    @ManyToOne
-    @JoinColumn(name="zivotinjaId")
-    private Zivotinja zivotinja;
-    private LocalTime datumHranjenja;
+    @JoinColumn(name="radnikZaZivotinju_id")
+    private RadnikZaZivoitnju radnikZaZivoitnju;
+    private LocalDate datumHranjenja;
+    private LocalTime vrijemeHranjenja;
+
     private boolean nahranjena;
 
     public HranjenjeZivotinje()
@@ -22,20 +22,11 @@ public class HranjenjeZivotinje{
 
     }
 
-
-
-
-    public HranjenjeZivotinje(Long idHranjenjaZivotinja,
-                              Radnik radnik, Zivotinja zivotnja,
-                              LocalTime datumHranjenja, boolean nahranjena) {
-        this.id = id;
-        this.radnik = radnik;
-        this.zivotinja = zivotnja;
+    public HranjenjeZivotinje(RadnikZaZivoitnju radnikZaZivoitnju, LocalDate datumHranjenja) {
+        this.radnikZaZivoitnju = radnikZaZivoitnju;
         this.datumHranjenja = datumHranjenja;
-        this.nahranjena = nahranjena;
+        this.nahranjena = false;
     }
-
-
 
     public Long getId() {
         return id;
@@ -45,28 +36,28 @@ public class HranjenjeZivotinje{
         this.id = id;
     }
 
-    public Radnik getRadnik() {
-        return radnik;
+    public RadnikZaZivoitnju getRadnikZaZivoitnju() {
+        return radnikZaZivoitnju;
     }
 
-    public void setRadnik(Radnik radnik) {
-        this.radnik = radnik;
+    public void setRadnikZaZivoitnju(RadnikZaZivoitnju radnikZaZivoitnju) {
+        this.radnikZaZivoitnju = radnikZaZivoitnju;
     }
 
-    public Zivotinja getZivotnja() {
-        return zivotinja;
-    }
-
-    public void setZivotnja(Zivotinja zivotinja) {
-        this.zivotinja = zivotinja;
-    }
-
-    public LocalTime getDatumHranjenja() {
+    public LocalDate getDatumHranjenja() {
         return datumHranjenja;
     }
 
-    public void setDatumHranjenja(LocalTime datumHranjenja) {
+    public void setDatumHranjenja(LocalDate datumHranjenja) {
         this.datumHranjenja = datumHranjenja;
+    }
+
+    public LocalTime getVrijemeHranjenja() {
+        return vrijemeHranjenja;
+    }
+
+    public void setVrijemeHranjenja(LocalTime vrijemeHranjenja) {
+        this.vrijemeHranjenja = vrijemeHranjenja;
     }
 
     public boolean isNahranjena() {
