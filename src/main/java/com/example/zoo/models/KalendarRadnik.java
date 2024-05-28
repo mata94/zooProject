@@ -1,6 +1,7 @@
 package com.example.zoo.models;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalTime;
 import java.util.Date;
@@ -14,9 +15,13 @@ public class KalendarRadnik {
 
     private LocalTime radnoVrijemeOd;
     private LocalTime radnoVrijemeDo;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date godisnjiOd;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date godisnjiDo;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nedostupnostOd;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nedostupnostDo;
 
     @ManyToOne
