@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Tip Nastanbe</title>
+    <title>Lista Oblika Nastanbe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h1 class="my-4">Tip Nastanbe</h1>
+    <h1 class="my-4">Lista Oblika Nastanbe</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -17,11 +17,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="tipNastanbe : ${tipNastanbe}">
-            <td th:text="${tipNastanbe.id}">ID</td>
-            <td th:text="${tipNastanbe.naziv}">Naziv</td>
+        <tr th:each="oblikNastanbe : ${oblikNastanbe}">
+            <td th:text="${oblikNastanbe.id}">ID</td>
+            <td th:text="${oblikNastanbe.naziv}">Naziv</td>
             <td>
-                <a th:href="@{/listTipNastanbe/delete/{id}(id=${tipNastanbe.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+                <a th:href="@{/listOblikNastanbe/delete/{id}(id=${oblikNastanbe.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
             </td>
         </tr>
         </tbody>
