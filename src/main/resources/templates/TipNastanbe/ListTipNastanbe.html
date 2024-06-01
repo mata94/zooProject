@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Nastanbe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Tip Nastanbe</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naziv</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tipNastanbe : ${tipNastanbe}">
+            <td th:text="${tipNastanbe.id}">ID</td>
+            <td th:text="${tipNastanbe.naziv}">Naziv</td>
+            <td>
+                <a th:href="@{/listTipNastanbe/delete/{id}(id=${tipNastanbe.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

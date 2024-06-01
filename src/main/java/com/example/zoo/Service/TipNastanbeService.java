@@ -1,5 +1,6 @@
 package com.example.zoo.Service;
 
+import com.example.zoo.models.Nastanba;
 import com.example.zoo.models.OblikNastanbe;
 import com.example.zoo.models.TipNastanbe;
 import com.example.zoo.repository.TipNastanbeRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TipNastanbeService {
