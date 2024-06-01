@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Uredi Nastanbu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Uredi Nastanbu</h1>
+    <form th:action="@{/listNastanba/edit/{id}(id=${nastanba.id})}" th:object="${nastanba}" method="post">
+        <div class="form-group">
+            <label for="naziv">Naziv:</label>
+            <input type="text" id="naziv" th:field="*{naziv}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="brojcanaLokacija">Brojčana Lokacija:</label>
+            <input type="number" id="brojcanaLokacija" th:field="*{brojcanaLokacija}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="tipNastanbe">Tip Nastambe:</label>
+            <select id="tipNastanbe" th:field="*{tipNastanbe.id}" class="form-control">
+                <option th:each="tip : ${tipNastanbeList}" th:value="${tip.id}" th:text="${tip.naziv}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mjestoPromatranja">Mjesto Promatranja:</label>
+            <input type="text" id="mjestoPromatranja" th:field="*{mjestoPromatranja}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="oblikNastanbe">Oblik Nastambe:</label>
+            <select id="oblikNastanbe" th:field="*{oblikNastanbe.id}" class="form-control">
+                <option th:each="oblik : ${oblikNastanbeList}" th:value="${oblik.id}" th:text="${oblik.naziv}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="strukturaNastanbe">Struktura Nastambe:</label>
+            <input type="text" id="strukturaNastanbe" th:field="*{strukturaNastanbe}" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Spremi</button>
+    </form>
+</div>
+</body>
+</html>

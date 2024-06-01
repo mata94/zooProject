@@ -31,8 +31,8 @@
             <td th:text="${nastanba.oblikNastanbe.naziv}">Oblik Nastambe</td>
             <td th:text="${nastanba.strukturaNastanbe}">Struktura Nastambe</td>
             <td>
-                <a th:href="@{/nastambe/edit/{id}(id=${nastanba.id})}" class="btn btn-warning btn-sm">Update</a>
-                <a th:href="@{/nastambe/delete/{id}(id=${nastanba.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+                <a th:href="@{/listNastanba/edit/{id}(id=${nastanba.id})}" class="btn btn-warning btn-sm">Update</a>
+                <a th:href="@{/listNastanba/delete/{id}(id=${nastanba.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
             </td>
         </tr>
         </tbody>

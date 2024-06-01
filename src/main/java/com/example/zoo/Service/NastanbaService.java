@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NastanbaService {
@@ -37,6 +38,8 @@ public class NastanbaService {
         return nastanbaRepository.save(nastanba);
 
     }
+
+    public Optional<Nastanba> findById(Long id) { return nastanbaRepository.findById(id);}
 
 
 }
