@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class NastanbaController {
 
@@ -39,4 +41,12 @@ public class NastanbaController {
 
         return "redirect:/Nastanba";
     }
+
+    @GetMapping("/listNastanba")
+    public String getAllNastambe(Model model) {
+        List<Nastanba> nastambe = nastanbaService.findAll();
+        model.addAttribute("nastambe", nastambe);
+        return "Nastanba/ListNastanba";
+    }
+
 }

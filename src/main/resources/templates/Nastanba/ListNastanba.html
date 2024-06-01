@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Nastambi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista Nastambi</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naziv</th>
+            <th>Brojčana Lokacija</th>
+            <th>Tip Nastambe</th>
+            <th>Mjesto Promatranja</th>
+            <th>Oblik Nastambe</th>
+            <th>Struktura Nastambe</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="nastanba : ${nastambe}">
+            <td th:text="${nastanba.id}">ID</td>
+            <td th:text="${nastanba.naziv}">Naziv</td>
+            <td th:text="${nastanba.brojcanaLokacija}">Brojčana Lokacija</td>
+            <td th:text="${nastanba.tipNastanbe.naziv}">Tip Nastambe</td>
+            <td th:text="${nastanba.mjestoPromatranja}">Mjesto Promatranja</td>
+            <td th:text="${nastanba.oblikNastanbe.naziv}">Oblik Nastambe</td>
+            <td th:text="${nastanba.strukturaNastanbe}">Struktura Nastambe</td>
+            <td>
+                <a th:href="@{/nastambe/edit/{id}(id=${nastanba.id})}" class="btn btn-warning btn-sm">Update</a>
+                <a th:href="@{/nastambe/delete/{id}(id=${nastanba.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
