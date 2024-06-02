@@ -18,4 +18,15 @@ public class ZivotinjaService {
 
 
     public List<Zivotinja> findAll() {return zivotinjaRepository.findAll();}
+
+    public boolean provjeriNastanbu(Zivotinja zivotinja){
+        Zivotinja rezultat = this.zivotinjaRepository.provjeraPostojanjaZivotinje(zivotinja.getVrstaZivotinje(),zivotinja.getNastanba());
+
+        if(rezultat == null){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 }

@@ -48,9 +48,12 @@ public class ZivotinjaController {
     @PostMapping("/zivotinja")
     public String createZivotinja(Zivotinja zivotinja)
     {
-        this.zivotinjaService.create(zivotinja);
-
-        return "redirect:/zivotinja";
+        if(this.zivotinjaService.provjeriNastanbu(zivotinja)){
+            this.zivotinjaService.create(zivotinja);
+            return "redirect:/zivotinja";
+        }else{
+            throw new RuntimeException("Zivotinja vec posotji u toj nastanbi.");
+        }
     }
 
     @GetMapping("/hranjenjeZivotinje")
@@ -69,5 +72,4 @@ public class ZivotinjaController {
 
         return "redirect:/hranjenjeZivotinje";
     }
-
 }
