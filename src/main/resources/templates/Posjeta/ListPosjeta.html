@@ -14,7 +14,6 @@
             <th>ID</th>
             <th>Radnik</th>
             <th>Datum</th>
-            <th>Vrijeme</th>
             <th>Akcije</th>
         </tr>
         </thead>
@@ -22,9 +21,9 @@
         <tr th:each="posjeta : ${posjete}">
             <td th:text="${posjeta.id}">ID</td>
             <td th:text="${posjeta.radnik.ime}">Radnik</td>
-            <td th:text="${posjeta.datum}">Datum</td>
-            <td th:text="${posjeta.vrijeme}">Vrijeme</td>
+            <td th:text="${posjeta.nazivGrupe}">Naziv grupe</td>
             <td>
+                <a th:href="@{/listPosjeta/edit/{id}(id=${posjeta.id})}" class="btn btn-warning btn-sm">Update</a>
                 <a th:href="@{/listPosjeta/delete/{id}(id=${posjeta.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
             </td>
         </tr>
