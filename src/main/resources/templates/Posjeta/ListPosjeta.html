@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Posjeta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista Posjeta</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Radnik</th>
+            <th>Datum</th>
+            <th>Vrijeme</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="posjeta : ${posjete}">
+            <td th:text="${posjeta.id}">ID</td>
+            <td th:text="${posjeta.radnik.ime}">Radnik</td>
+            <td th:text="${posjeta.datum}">Datum</td>
+            <td th:text="${posjeta.vrijeme}">Vrijeme</td>
+            <td>
+                <a th:href="@{/listPosjeta/delete/{id}(id=${posjeta.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
