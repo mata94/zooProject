@@ -32,8 +32,14 @@ public class PosjeteController {
 
     @PostMapping("/unosPosjete")
     public String createPosjete(@ModelAttribute Posjete posjete) {
-        posjeteService.save(posjete);
-        return "redirect:/unosPosjete";
+        
+        if(this.radnikService.provjeraSlobodnogRadnika(posjete.getRadnik()))
+        {
+            posjeteService.save(posjete);
+            return "redirect:/unosPosjete";
+        }else{
+            throw new RuntimeException("Radnik je zauzet.");
+        }
     }
 
     @GetMapping("/listPosjeta")
