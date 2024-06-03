@@ -5,13 +5,11 @@ import com.example.zoo.Service.*;
 import com.example.zoo.models.KalendarRadnik;
 import com.example.zoo.models.Radnik;
 import com.example.zoo.models.RadnikZaZivoitnju;
+import com.example.zoo.models.Zivotinja;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -79,5 +77,17 @@ public class RadnikController {
     {
         this.kalendarRadnikService.create(kalendarRadnik);
         return "redirect:/radnik/kalendarRada";
+    }
+    @GetMapping("/listRadnik")
+    public String getAllRadnik(Model model){
+        List<Radnik> Radnik = radnikService.findAll();
+        model.addAttribute("radnik", Radnik);
+        return "Radnik/ListRadnik";
+    }
+
+    @GetMapping("/listRadnik/delete/{id}")
+    public String deleteRadnik(@PathVariable Long id){
+        radnikService.deleteRadnik(id);
+        return "redirect:/listRadnik";
     }
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Radnika</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista radnika</h1>
+    <table class="table table-striped">
+        <a href="/unosRadnika" class="btn btn-primary" style="float: right; margin-top: 10px;">Dodaj </a>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ime</th>
+            <th>Prezime </th>
+            <th>Kvalifikacija</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="radnik : ${radnici}">
+            <td th:text="${radnik.id}">ID</td>
+            <td th:text="${radnik.ime}">Ime</td>
+            <td th:text="${radnik.prezime}">Prezime</td>
+            <td th:text="${radnik.kvalifikacija}">Kvalifikacija</td>
+
+
+
+
+            <td>
+                <a th:href="@{/listRadnik/edit/{id}(id=${radnik.id})}" class="btn btn-warning btn-sm">Dodaj</a>
+                <a th:href="@{/listRadnik/delete/{id}(id=${radnik.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

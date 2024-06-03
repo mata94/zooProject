@@ -46,4 +46,8 @@ public class RadnikService {
             return false;
         }
     }
+
+    public void deleteRadnik(Long id) {
+        radnikRepository.deleteById(id);
+    }
 }
