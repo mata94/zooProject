@@ -5,6 +5,8 @@ import com.example.zoo.repository.IncidentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class IncidentService {
     @Autowired
@@ -12,5 +14,13 @@ public class IncidentService {
 
     public void createIncident(Incident incident) {
         this.incidentRepository.save(incident);
+    }
+
+    public List<Incident> findAll() {
+        return incidentRepository.findAll();
+    }
+
+    public void deleteIncident(Long id) {
+        incidentRepository.deleteById(id);
     }
 }

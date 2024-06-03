@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Incidenata</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista incidenata</h1>
+    <table class="table table-striped">
+        <a href="/Nastanba" class="btn btn-primary" style="float: right; margin-top: 10px;">Kreiraj novi incident</a>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vrsta</th>
+            <th>Životinja </th>
+            <th>Nastamba</th>
+            <th>Komentar</th>
+            <th>Popravak </th>
+            <th>Datum</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="incident : ${incidenti}">
+            <td th:text="${incident.id}">ID</td>
+            <td th:text="${incident.vrsta}">Životinja</td>
+            <td th:text="${incident.zivotinja}">Nastamba</td>
+            <td th:text="${incident.komentar}">Komentar</td>
+            <td th:text="${incident.popravak}">Popravak</td>
+            <td th:text="${incident.datum}">Datum</td>
+
+            <td>
+                <a th:href="@{/listIncident/edit/{id}(id=${incident.id})}" class="btn btn-warning btn-sm">Update</a>
+                <a th:href="@{/listIncident/delete/{id}(id=${incident.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
