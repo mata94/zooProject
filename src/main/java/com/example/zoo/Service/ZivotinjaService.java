@@ -29,4 +29,7 @@ public class ZivotinjaService {
         }
     }
 
+    public void deleteZivotinja(Long id) {
+        zivotinjaRepository.deleteById(id);
+    }
 }

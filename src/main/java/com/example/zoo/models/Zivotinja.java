@@ -15,7 +15,7 @@ public class Zivotinja {
     private String naziv;
     private Integer indentifikator;
     private boolean skupZivotinja;
-    private Integer brojZivotnja;
+    private Integer brojZivotinja;
     @ManyToOne
     @JoinColumn(name = "nastanba_id")
     private Nastanba nastanba;
@@ -40,7 +40,7 @@ public class Zivotinja {
         this.naziv = naziv;
         this.indentifikator = indentifikator;
         this.skupZivotinja = skupZivotinja;
-        this.brojZivotnja = brojZivotnja;
+        this.brojZivotinja = brojZivotinja;
         this.nastanba = nastanba;
         this.postojanjeZivotinje = postojanjeZivotinje;
         this.vrstaZivotinje = vrstaZivotinje;
@@ -80,12 +80,11 @@ public class Zivotinja {
         this.skupZivotinja = skupZivotinja;
     }
 
-    public Integer getBrojZivotnja() {
-        return brojZivotnja;
+    public Integer getBrojZivotinja() {
+        return brojZivotinja;
     }
 
-    public void setBrojZivotnja(Integer brojZivotnja) {
-        this.brojZivotnja = brojZivotnja;
+    public void setBrojZivoitnja(Integer brojZivotnja) {this.brojZivotinja = brojZivotnja;
     }
 
     public Nastanba getNastanba() {

@@ -2,6 +2,7 @@ package com.example.zoo.Controllers;
 
 import com.example.zoo.Service.*;
 import com.example.zoo.models.HranjenjeZivotinje;
+import com.example.zoo.models.Incident;
 import com.example.zoo.models.Zivotinja;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Controller
 public class ZivotinjaController {
@@ -72,4 +74,17 @@ public class ZivotinjaController {
 
         return "redirect:/hranjenjeZivotinje";
     }
+    @GetMapping("/listZivotinja")
+    public String getAllIncident(Model model){
+        List<Zivotinja> Zivotinja = zivotinjaService.findAll();
+        model.addAttribute("zivotinja", Zivotinja);
+        return "Zivotinja/ListZivotinja";
+    }
+
+    @GetMapping("/listZivotinja/delete/{id}")
+    public String deleteZivotinja(@PathVariable Long id){
+        zivotinjaService.deleteZivotinja(id);
+        return "redirect:/listZivotinja";
+    }
 }
+
