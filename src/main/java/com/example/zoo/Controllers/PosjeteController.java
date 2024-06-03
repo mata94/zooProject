@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class PosjeteController {
+public class gitPosjeteController {
 
     @Autowired
     private PosjeteService posjeteService;
