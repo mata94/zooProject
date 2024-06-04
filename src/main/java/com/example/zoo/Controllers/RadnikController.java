@@ -51,8 +51,8 @@ public class RadnikController {
     public String createRadnikZaZivoitnjuForm(Model model){
 
         model.addAttribute("radnikZaZivotinju",new RadnikZaZivoitnju());
-        model.addAttribute("radnici",this.radnikService.findAll());
-        model.addAttribute("zivotinje",this.zivotinjaService.findAll());
+        model.addAttribute("radnici",this.radnikService.pronadjiSlobodneRadnike());
+        model.addAttribute("zivotinje",this.zivotinjaService.findAllCurrentAnimals());
 
         return "Radnik/radnikZaZivotinjuCreate";
     }

@@ -13,7 +13,7 @@ public interface KalendarRadnikRepository extends JpaRepository<KalendarRadnik,L
 
     @Query("SELECT kr FROM KalendarRadnik kr WHERE kr.radnik = :radnik " +
             "OR :trenutnoVrijeme BETWEEN kr.radnoVrijemeOd AND kr.radnoVrijemeDo " +
-            "OR (kr.godisnjiOd IS NULL OR :trenutniDatum NOT BETWEEN kr.godisnjiOd AND kr.godisnjiDo) " +
+            "AND (kr.godisnjiOd IS NULL OR :trenutniDatum NOT BETWEEN kr.godisnjiOd AND kr.godisnjiDo) " +
             "OR (kr.nedostupnostOd IS NULL OR :trenutniDatum NOT BETWEEN kr.nedostupnostOd AND kr.nedostupnostDo)")
     public KalendarRadnik provjeraSlobodnogRadnika(@Param("radnik") Radnik radnik,
                                                    @Param("trenutnoVrijeme") LocalTime trenutnoVrijeme,

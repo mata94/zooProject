@@ -47,6 +47,12 @@ public class RadnikService {
         }
     }
 
+    public List<Radnik>pronadjiSlobodneRadnike(){
+        LocalTime currentTime = LocalTime.now();
+        Date currentDate = new Date();
+        return this.radnikRepository.pronadjiSlobodneRadnike(currentTime,currentDate);
+    }
+
     public void deleteRadnik(Long id) {
         radnikRepository.deleteById(id);
     }
