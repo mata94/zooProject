@@ -13,7 +13,7 @@ public class Zivotinja {
     private Long id;
 
     private String naziv;
-    private Integer indentifikator;
+    private Integer identifikator;
     private boolean skupZivotinja;
     private Integer brojZivotinja;
     @ManyToOne
@@ -35,10 +35,10 @@ public class Zivotinja {
 
     }
 
-    public Zivotinja(Long id, String naziv, Integer indentifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje,Date dolazakZivotinje) {
+    public Zivotinja(Long id, String naziv, Integer identifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje, Date dolazakZivotinje) {
         this.id = id;
         this.naziv = naziv;
-        this.indentifikator = indentifikator;
+        this.identifikator = identifikator;
         this.skupZivotinja = skupZivotinja;
         this.brojZivotinja = brojZivotinja;
         this.nastanba = nastanba;
@@ -64,12 +64,12 @@ public class Zivotinja {
         this.naziv = naziv;
     }
 
-    public Integer getIndentifikator() {
-        return indentifikator;
+    public Integer getIdentifikator() {
+        return identifikator;
     }
 
-    public void setIndentifikator(Integer indentifikator) {
-        this.indentifikator = indentifikator;
+    public void setIdentifikator(Integer indentifikator) {
+        this.identifikator = indentifikator;
     }
 
     public boolean isSkupZivotinja() {

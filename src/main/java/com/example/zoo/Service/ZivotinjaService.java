@@ -32,4 +32,8 @@ public class ZivotinjaService {
     public void deleteZivotinja(Long id) {
         zivotinjaRepository.deleteById(id);
     }
+
+    public List<Zivotinja>findAllCurrentAnimals(){
+        return this.zivotinjaRepository.findAllCurrentAnimals(true);
+    }
 }

@@ -77,7 +77,7 @@ public class ZivotinjaController {
     @GetMapping("/listZivotinja")
     public String getAllIncident(Model model){
         List<Zivotinja> Zivotinja = zivotinjaService.findAll();
-        model.addAttribute("zivotinja", Zivotinja);
+        model.addAttribute("zivotinje", Zivotinja);
         return "Zivotinja/ListZivotinja";
     }
 
@@ -85,6 +85,12 @@ public class ZivotinjaController {
     public String deleteZivotinja(@PathVariable Long id){
         zivotinjaService.deleteZivotinja(id);
         return "redirect:/listZivotinja";
+    }
+
+    @GetMapping("/listaTrenutnihZivotinja")
+    public String allCurrentAnimals(Model model){
+        model.addAttribute("zivotinje",this.zivotinjaService.findAllCurrentAnimals());
+        return "Zivotinja/ListZivotinja";
     }
 }
 

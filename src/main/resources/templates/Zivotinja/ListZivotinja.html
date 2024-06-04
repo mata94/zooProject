@@ -19,28 +19,30 @@
             <th>Broj životinja</th>
             <th>Nastamba</th>
             <th>Postojanje?</th>
-
             <th>Vrsta  </th>
             <th>Porijeklo</th>
             <th>Datum dolaska</th>
+            <th>Update</th>
+            <th>Delete</th>
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="zivotinja : ${zivotinje}">
-            <td th:text="${zivotinja.id}">ID</td>
-            <td th:text="${zivotinja.naziv}">Naziv</td>
-            <td th:text="${zivotinja.identifikator}">STA CE NAM OVAJ IDENTIFIKATOR?</td>
-            <td th:text="${zivotinja.skupZivotinja}">Skup životinja</td>
-            <td th:text="${zivotinja.brojZivotinja}">Broj životinja</td>
-            <td th:text="${zivotinja.nastanba}">Nastamba</td>
-            <td th:text="${zivotinja.postojanjeZivotinje}">postojanje?</td>
-            <td th:text="${zivotinja.vrsta}">Vrsta</td>
-            <td th:text="${zivotinja.porijeklo}">Porijeklo</td>
-            <td th:text="${zivotinja.datum}">Datum dolaska</td>
-
+            <td th:text="${zivotinja.id}"></td>
+            <td th:text="${zivotinja.naziv}"></td>
+            <td th:text="${zivotinja.identifikator}"></td>
+            <td th:text="${zivotinja.skupZivotinja}"></td>
+            <td th:text="${zivotinja.brojZivotinja}"></td>
+            <td th:text="${zivotinja.nastanba.naziv}"></td>
+            <td th:text="${zivotinja.postojanjeZivotinje}"></td>
+            <td th:text="${zivotinja.vrstaZivotinje.getImeHrv()}"></td>
+            <td th:text="${zivotinja.porijekloZivotinje.naziv}"></td>
+            <td th:text="${zivotinja.dolazakZivotinje}"></td>
             <td>
-                <a th:href="@{/listZivotinja/edit/{id}(id=${zivotinja.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/listZivotinja/edit/{id}(id=${zivotinja.id})}" class="btn btn-warning btn-sm">Update</a>
+            </td>
+            <td>
                 <a th:href="@{/listZivotinja/delete/{id}(id=${zivotinja.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
             </td>
         </tr>

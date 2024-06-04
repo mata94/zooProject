@@ -32,7 +32,7 @@ public class PosjeteController {
 
     @PostMapping("/unosPosjete")
     public String createPosjete(@ModelAttribute Posjete posjete) {
-        
+
         if(this.radnikService.provjeraSlobodnogRadnika(posjete.getRadnik()))
         {
             posjeteService.save(posjete);
