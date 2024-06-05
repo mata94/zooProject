@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Vrsta Incidenata</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista Vrsta Incidenata</h1>
+    <a href="/VrstaIncidenta" class="btn btn-primary" style="float: right; margin-top: 10px;">Kreiraj novu vrstu incidenta</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naziv</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vrstaIncidenta : ${vrstaIncidenta}">
+            <td th:text="${vrstaIncidenta.id}">ID</td>
+            <td th:text="${vrstaIncidenta.naziv}">Naziv</td>
+            <td>
+                <a th:href="@{/listVrstaIncidenta/edit/{id}(id=${vrstaIncidenta.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/listVrstaIncidenta/delete/{id}(id=${vrstaIncidenta.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

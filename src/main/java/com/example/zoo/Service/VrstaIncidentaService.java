@@ -18,4 +18,6 @@ public class VrstaIncidentaService {
 
     public List<VrstaIncidenta> findAll() {return vrstaIncidentaRepository.findAll();}
 
+    public void deleteById(long id) {vrstaIncidentaRepository.deleteById(id);}
+
 }

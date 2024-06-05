@@ -20,4 +20,6 @@ public class VrstaZivotinjeService {
     public List<VrstaZivotinje> findAll(){
         return this.vrstaZivotinjeRepository.findAll();
     }
+
+    public void deleteById(Long id) {vrstaZivotinjeRepository.deleteById(id);}
 }

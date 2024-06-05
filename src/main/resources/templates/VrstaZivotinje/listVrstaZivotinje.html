@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Vrsta Životinja</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista Vrsta Životinja</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ime (Hrvatski)</th>
+            <th>Ime (Engleski)</th>
+            <th>Ime (Latinski)</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vrsta : ${vrstaZivotinje}">
+            <td th:text="${vrsta.id}">ID</td>
+            <td th:text="${vrsta.imeHrv}">Ime (Hrvatski)</td>
+            <td th:text="${vrsta.imeEng}">Ime (Engleski)</td>
+            <td th:text="${vrsta.imeLat}">Ime (Latinski)</td>
+
+            <td>
+                <a th:href="@{/listVrstaZivotinje/edit/{id}(id=${vrsta.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/listVrstaZivotinje/delete/{id}(id=${vrsta.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

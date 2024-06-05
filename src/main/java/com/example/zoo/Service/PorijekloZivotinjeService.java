@@ -21,4 +21,6 @@ public class PorijekloZivotinjeService {
     public List<PorijekloZivotinje>findAll(){
         return this.porijekloZivotinjeRepository.findAll();
     }
+
+    public void deleteById(Long id) {porijekloZivotinjeRepository.deleteById(id);}
 }
