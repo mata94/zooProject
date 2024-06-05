@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Hrana za Životinje</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h2 class="mt-5">Hrana za Životinje Forma</h2>
+  <form th:action="@{/hranaZaZivotinje}" th:object="${hranaZaZivotinje}" method="post">
+    <div class="form-group">
+      <label for="zivotinja">Životinja:</label>
+      <select id="zivotinja" th:field="*{zivotinja}" class="form-control">
+        <option th:each="zivotinja : ${zivotinje}" th:value="${zivotinja.id}" th:text="${zivotinja.naziv}">Životinja</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Cijena:</label>
+      <input type="number" step="0.01" id="price" th:field="*{price}" class="form-control" placeholder="Unesite cijenu">
+    </div>
+    <div class="form-group">
+      <label for="dobavljac">Dobavljač:</label>
+      <select id="dobavljac" th:field="*{dobavljac}" class="form-control">
+        <option th:each="dobavljac : ${dobavljaci}" th:value="${dobavljac.id}" th:text="${dobavljac.naziv}">Dobavljač</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="datum">Datum:</label>
+      <input type="date" id="datum" th:field="*{datum}" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Spremi</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
