@@ -13,4 +13,11 @@ public class NaslovnicaController {
         return "Naslovnica/PocetnaStranica";
 
     }
+
+    @GetMapping("/")
+    public String redirectToPocetna() {
+
+        return "redirect:/pocetna";
+        
+    }
 }
