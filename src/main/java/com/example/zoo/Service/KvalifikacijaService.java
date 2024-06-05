@@ -16,4 +16,6 @@ public class KvalifikacijaService {
     }
 
     public List<Kvalifikacija> findAll() {return kvalifikacijaRepository.findAll();}
+
+    public void deleteKvalifikacija(Long id) {kvalifikacijaRepository.deleteById(id);}
 }

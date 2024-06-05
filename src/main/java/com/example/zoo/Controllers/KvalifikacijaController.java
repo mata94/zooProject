@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class KvalifikacijaController {
@@ -27,4 +30,21 @@ public class KvalifikacijaController {
         this.kvalifikacijaService.create(kvalifikacija);
         return "redirect:/kvalifikacija";
     }
+
+    @GetMapping("/listKvalifikacija")
+    public String getAllKvalifications(Model model)
+    {
+        List<Kvalifikacija> Kvalifikacija = kvalifikacijaService.findAll();
+        model.addAttribute("kvalifikacija",Kvalifikacija);
+        return "Kvalifikacija/listKvalifikacija";
+    }
+
+    @GetMapping("/listKvalifikacija/delete/{id}")
+    public String deleteKvalifikacija(@PathVariable Long id)
+    {
+        kvalifikacijaService.deleteKvalifikacija(id);
+        return "redirect:/listKvalifikacija";
+    }
+
+
 }

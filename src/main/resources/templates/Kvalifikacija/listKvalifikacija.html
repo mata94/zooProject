@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Kvalifikacija</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista Kvalifikacija</h1>
+    <table class="table table-striped">
+        <a href="/kvalifikacija" class="btn btn-primary" style="float: right; margin-top: 10px;">Kreiraj novu kvalifikaciju</a>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naziv</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="kvalifikacija : ${kvalifikacija}">
+            <td th:text="${kvalifikacija.id}">ID</td>
+            <td th:text="${kvalifikacija.naziv}">Naziv</td>
+            <td>
+                <a th:href="@{/listKvalifikacija/edit/{id}(id=${kvalifikacija.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/listKvalifikacija/delete/{id}(id=${kvalifikacija.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

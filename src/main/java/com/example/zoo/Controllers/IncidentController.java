@@ -5,7 +5,6 @@ import com.example.zoo.Service.NastanbaService;
 import com.example.zoo.Service.VrstaIncidentaService;
 import com.example.zoo.Service.ZivotinjaService;
 import com.example.zoo.models.Incident;
-import com.example.zoo.models.OblikNastanbe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

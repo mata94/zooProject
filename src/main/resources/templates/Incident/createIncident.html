@@ -15,7 +15,7 @@
             <label for="vrstaIncidenta">Vrsta Incidenta:</label>
             <select class="form-control" id="vrstaIncidenta" th:field="*{vrstaIncidenta}">
                 <option value="">Select Vrsta Incidenta</option>
-                <!-- Iterate over vrstaIncidentaList to populate options -->
+
                 <option th:each="vrsta : ${vrstaIncidentaList}" th:value="${vrsta.id}" th:text="${vrsta.naziv}"></option>
             </select>
         </div>
@@ -24,8 +24,8 @@
             <label for="zivotinja">Zivotinja:</label>
             <select class="form-control" id="zivotinja" th:field="*{zivotinja}">
                 <option value="">Select Zivotinja</option>
-                <!-- Iterate over zivotinjaList to populate options -->
-                <option th:each="zivotinja : ${zivotinjaList}" th:value="${zivotinja.id}" th:text="${zivotinja.ime}"></option>
+
+                <option th:each="zivotinja : ${zivotinjaList}" th:value="${zivotinja.id}" th:text="${zivotinja.naziv}"></option>
             </select>
         </div>
 
@@ -33,7 +33,7 @@
             <label for="nastanba">Nastanba:</label>
             <select class="form-control" id="nastanba" th:field="*{nastanba}">
                 <option value="">Select Nastanba</option>
-                <!-- Iterate over nastanbaList to populate options -->
+
                 <option th:each="nastanba : ${nastanbaList}" th:value="${nastanba.id}" th:text="${nastanba.naziv}"></option>
             </select>
         </div>

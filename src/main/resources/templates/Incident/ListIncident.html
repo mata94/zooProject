@@ -23,13 +23,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="incident : ${incidenti}">
-            <td th:text="${incident.id}">ID</td>
-            <td th:text="${incident.vrsta}">Životinja</td>
-            <td th:text="${incident.zivotinja}">Nastamba</td>
-            <td th:text="${incident.komentar}">Komentar</td>
-            <td th:text="${incident.popravak}">Popravak</td>
-            <td th:text="${incident.datum}">Datum</td>
+        <tr th:each="incident : ${incident}">
+            <td th:text="${incident.id}"></td>
+            <td th:text="${incident.vrstaIncidenta.naziv}"></td>
+            <td th:text="${incident.zivotinja.naziv}"></td>
+            <td th:text="${incident.nastanba.naziv}"></td>
+            <td th:text="${incident.komentar}"></td>
+            <td th:text="${incident.popravak}"></td>
+            <td th:text="${incident.datum}"></td>
 
             <td>
                 <a th:href="@{/listIncident/edit/{id}(id=${incident.id})}" class="btn btn-warning btn-sm">Edit</a>

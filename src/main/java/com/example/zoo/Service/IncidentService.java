@@ -20,7 +20,5 @@ public class IncidentService {
         return incidentRepository.findAll();
     }
 
-    public void deleteIncident(Long id) {
-        incidentRepository.deleteById(id);
-    }
+    public void deleteIncident(Long id) {incidentRepository.deleteById(id);}
 }
