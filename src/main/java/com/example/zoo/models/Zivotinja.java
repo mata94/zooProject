@@ -68,8 +68,8 @@ public class Zivotinja {
         return identifikator;
     }
 
-    public void setIdentifikator(Integer indentifikator) {
-        this.identifikator = indentifikator;
+    public void setIdentifikator(Integer identifikator) {
+        this.identifikator = identifikator;
     }
 
     public boolean isSkupZivotinja() {
@@ -84,7 +84,9 @@ public class Zivotinja {
         return brojZivotinja;
     }
 
-    public void setBrojZivoitnja(Integer brojZivotinja) {this.brojZivotinja = brojZivotinja;
+
+    public void setBrojZivotinja(Integer brojZivotinja) {
+        this.brojZivotinja = brojZivotinja;
     }
 
     public Nastanba getNastanba() {
