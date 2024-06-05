@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Naslovnica</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap">
     <style>
         body {
             margin: 0;
@@ -42,6 +43,19 @@
             margin-left: 210px;
             padding: 20px;
         }
+
+        .content h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 90px;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+
+        .content p {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +66,15 @@
     <a th:href="@{/listRadnik}">Radnici</a>
     <a th:href="@{/listPosjeta}">Posjete</a>
     <a th:href="@{/listNastanba}">Nastambe</a>
+    <a th:href="@{/listKvalifikacija}">Kvalifikacije</a>
+    <a th:href="@{/listIncident}">Incidenti</a>
+    <a th:href="@{/listVrstaIncidenta}">Vrsta incidenta</a>
+    <a th:href="@{/hranaZaZivotinje}">Hrana</a>
+    <a th:href="@{/dobavljac}">Dobavljač</a>
+    <a th:href="@{/listVrstaZivotinje}">Vrsta životinje</a>
+    <a th:href="@{/listPorijekloZivotinje}">Porijeklo životinje</a>
+    <a th:href="@{/listOblikNastanbe}">Oblik nastambe</a>
+    <a th:href="@{/listTipNastanbe}">Tip nastambe</a>
 </div>
 
 <div class="content">
