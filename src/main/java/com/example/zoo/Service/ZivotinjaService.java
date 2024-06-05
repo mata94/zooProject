@@ -1,5 +1,6 @@
 package com.example.zoo.Service;
 
+import com.example.zoo.models.Nastanba;
 import com.example.zoo.models.Zivotinja;
 import com.example.zoo.repository.ZivotinjaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,18 @@ public class ZivotinjaService {
     public List<Zivotinja> findAll() {return zivotinjaRepository.findAll();}
 
     public boolean provjeriNastanbu(Zivotinja zivotinja){
-        Zivotinja rezultat = this.zivotinjaRepository.provjeraPostojanjaZivotinje(zivotinja.getVrstaZivotinje(),zivotinja.getNastanba());
-
-        if(rezultat == null){
+        Zivotinja provjeraNastanbe = this.zivotinjaRepository.provjeraNastanbe(zivotinja.getNastanba());
+        if(provjeraNastanbe == null){
             return true;
-        }else {
-            return false;
+        }else{
+            Zivotinja rezultat = this.zivotinjaRepository.provjeraPostojanjaZivotinje(zivotinja.getVrstaZivotinje(),zivotinja.getNastanba());
+            if(rezultat == null){
+                return false;
+            }else {
+                return true;
+            }
         }
+
     }
 
     public void deleteZivotinja(Long id) {

@@ -34,6 +34,7 @@ public class HranjenjeZivotinjeService {
             hranjenjeZivotinjeRepository.save(hranjenjeZivotinje);
         }
     }
+
     public List<HranjenjeZivotinje> findAll(){
         return this.hranjenjeZivotinjeRepository.findAll();
     }

@@ -19,4 +19,7 @@ public interface ZivotinjaRepository extends JpaRepository<Zivotinja,Long> {
 
     @Query("SELECT z FROM Zivotinja z WHERE z.postojanjeZivotinje =:postojanje")
     public List<Zivotinja> findAllCurrentAnimals(boolean postojanje);
+
+    @Query("SELECT z FROM Zivotinja z INNER JOIN z.nastanba n WHERE n =:nastanba")
+    public Zivotinja provjeraNastanbe(@Param("nastanba")Nastanba nastanba);
 }
