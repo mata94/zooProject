@@ -35,7 +35,7 @@ public class Zivotinja {
 
     }
 
-    public Zivotinja(Long id, String naziv, Integer identifikator, boolean skupZivotinja, Integer brojZivotnja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje, Date dolazakZivotinje) {
+    public Zivotinja(Long id, String naziv, Integer identifikator, boolean skupZivotinja, Integer brojZivotinja, Nastanba nastanba, boolean postojanjeZivotinje, VrstaZivotinje vrstaZivotinje, PorijekloZivotinje porijekloZivotinje, Date dolazakZivotinje) {
         this.id = id;
         this.naziv = naziv;
         this.identifikator = identifikator;
@@ -68,8 +68,8 @@ public class Zivotinja {
         return identifikator;
     }
 
-    public void setIdentifikator(Integer indentifikator) {
-        this.identifikator = indentifikator;
+    public void setIdentifikator(Integer identifikator) {
+        this.identifikator = identifikator;
     }
 
     public boolean isSkupZivotinja() {
@@ -84,7 +84,8 @@ public class Zivotinja {
         return brojZivotinja;
     }
 
-    public void setBrojZivoitnja(Integer brojZivotnja) {this.brojZivotinja = brojZivotnja;
+    public void setBrojZivotinja(Integer brojZivotinja) {
+        this.brojZivotinja = brojZivotinja;
     }
 
     public Nastanba getNastanba() {
