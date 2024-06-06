@@ -5,7 +5,7 @@ import com.example.zoo.Service.ZivotinjaService;
 import com.example.zoo.models.Dobavljac;
 import com.example.zoo.models.HranaZaZivotinje;
 
-import com.example.zoo.models.Incident;
+
 import com.example.zoo.repository.DobavljacRepository;
 import com.example.zoo.repository.HranaZaZivotinjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

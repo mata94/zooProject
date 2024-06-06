@@ -1,1 +1,105 @@
-git
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Naslovnica</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Lato", sans-serif;
+            background: linear-gradient(to right, #d4fc79, #04aa6d);
+
+        }
+
+        .sidebar {
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #f1f1f1;
+            padding-top: 20px;
+            overflow-y: auto;
+
+        }
+
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+        }
+
+        .sidebar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+            color: white;
+        }
+
+        .content {
+            margin-left: 210px;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 90px;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+
+        .content p {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 200px);
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <a class="active" th:href="@{/pocetna}">Početna</a>
+    <a th:href="@{/listZivotinja}">Životinje</a>
+    <a th:href="@{/listRadnik}">Radnici</a>
+    <a th:href="@{/listPosjeta}">Posjete</a>
+    <a th:href="@{/listNastanba}">Nastambe</a>
+    <a th:href="@{/listKvalifikacija}">Kvalifikacije</a>
+    <a th:href="@{/listIncident}">Incidenti</a>
+    <a th:href="@{/listVrstaIncidenta}">Vrsta incidenta</a>
+    <a th:href="@{/hranaZaZivotinje}">Hrana</a>
+    <a th:href="@{/listVrstaZivotinje}">Vrsta životinje</a>
+    <a th:href="@{/listPorijekloZivotinje}">Porijeklo životinje</a>
+    <a th:href="@{/listOblikNastanbe}">Oblik nastambe</a>
+    <a th:href="@{/listTipNastanbe}">Tip nastambe</a>
+</div>
+
+<div class="content">
+    <h1>Zoo Aplikacija</h1>
+    <p>Koristite ovu stranicu za navigaciju kroz aplikaciju</p>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Zoo Aplikacija. Sva prava pridržana.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
