@@ -13,20 +13,30 @@ import java.util.List;
 public class HranaZaZivotinjuService {
 
     @Autowired
-    private HranaZaZivotinjeRepository hranaZaZivotinjeRepository;
+    static HranaZaZivotinjeRepository hranaZaZivotinjeRepository;
 
     @Autowired
     private DobavljacRepository dobavljacRepository;
 
-    public void save(HranaZaZivotinje hranaZaZivotinje){
+    public static List<HranaZaZivotinje> findAll() {
+        return hranaZaZivotinjeRepository.findAll();
+    }
+
+
+    public void save(HranaZaZivotinje hranaZaZivotinje) {
         this.hranaZaZivotinjeRepository.save(hranaZaZivotinje);
     }
 
-    public void createDobavljac(Dobavljac dobavljac){
+    public void createDobavljac(Dobavljac dobavljac) {
         this.dobavljacRepository.save(dobavljac);
     }
 
-    public List<Dobavljac>pronadjiSveDobavljace(){
+    public List<Dobavljac> pronadjiSveDobavljace() {
         return this.dobavljacRepository.findAll();
     }
+
+    public void deleteHrana(Long id) {
+        hranaZaZivotinjeRepository.deleteById(id);
+    }
+
 }

@@ -4,13 +4,19 @@ import com.example.zoo.Service.HranaZaZivotinjuService;
 import com.example.zoo.Service.ZivotinjaService;
 import com.example.zoo.models.Dobavljac;
 import com.example.zoo.models.HranaZaZivotinje;
+
+import com.example.zoo.models.Incident;
 import com.example.zoo.repository.DobavljacRepository;
 import com.example.zoo.repository.HranaZaZivotinjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class HranaZaZivotinjeController {
@@ -46,5 +52,19 @@ public class HranaZaZivotinjeController {
     public String createHranaZaZivotinje(HranaZaZivotinje hranaZaZivotinje){
         this.hranaZaZivotinjuService.save(hranaZaZivotinje);
         return "redirect:/hranaZaZivotinje";
+    }
+
+
+    @GetMapping("/hranaZaZivotinje")
+    public String getAllHranaZaZivotinje(Model model){
+        List<HranaZaZivotinje> HranaZaZivotinje = HranaZaZivotinjuService.findAll();
+        model.addAttribute("hranaZaZivotinje", HranaZaZivotinje);
+        return "HranaZaZivotinje/ListHranaZaZivotinje";
+    }
+
+    @GetMapping("/listHranaZaZivotinje/delete/{id}")
+    public String deleteHranaZaZivotinje(@PathVariable Long id){
+        hranaZaZivotinjuService.deleteHrana(id);
+        return "redirect:/listHranaZaZivotinje";
     }
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+        <html xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <title>Lista hrane</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista Hrane za životinje</h1>
+    <table class="table table-striped">
+        <a href="/hranaZaZivotinje" class="btn btn-primary" style="float: right; margin-bottom: 10px;">DODAJ HRANU</a>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Životinja </th>
+            <th>Cijena</th>
+            <th>Dobavljac </th>
+            <th>Datum</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="hranaZaZivotinje : ${hranaZaZivotinje}">
+            <td th:text="${hranaZaZivotinje.id}"></td>
+            <td th:text="${hranaZaZivotinje.zivotinja.naziv}"></td>
+            <td th:text="${hranaZaZivotinje.price}"></td>
+            <td th:text="${hranaZaZivotinje.dobavljac.naziv}"></td>
+            <td th:text="${hranaZaZivotinje.datum}"></td>
+
+            <td>
+                <a th:href="@{/listHranaZaZivotinje/edit/{id}(id=${hranaZaZivotinje.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/listHranaZaZivotinje/delete/{id}(id=${hranaZaZivotinje.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
