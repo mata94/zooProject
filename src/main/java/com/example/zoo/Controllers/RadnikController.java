@@ -2,10 +2,8 @@ package com.example.zoo.Controllers;
 
 
 import com.example.zoo.Service.*;
-import com.example.zoo.models.KalendarRadnik;
-import com.example.zoo.models.Radnik;
-import com.example.zoo.models.RadnikZaZivoitnju;
-import com.example.zoo.models.Zivotinja;
+import com.example.zoo.models.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class RadnikController {
@@ -88,6 +87,24 @@ public class RadnikController {
     @GetMapping("/listRadnik/delete/{id}")
     public String deleteRadnik(@PathVariable Long id){
         radnikService.deleteRadnik(id);
+        return "redirect:/listRadnik";
+    }
+    @GetMapping("/listRadnik/edit/{id}")
+    public String editRadnikForm(@PathVariable Long id, Model model) {
+        Optional <Radnik> optionalRadnik = radnikService.findById(id);
+        if (optionalRadnik.isEmpty()) {
+            throw new EntityNotFoundException("Radnik sa ID-om " + id + " nije pronađen");
+        }
+        Radnik radnik = optionalRadnik.get();
+        model.addAttribute("radnik", radnik);
+        model.addAttribute("kvalifikacijaList", kvalifikacijaService.findAll());
+
+        return "Radnik/EditRadnik";
+    }
+
+    @PostMapping("/listRadnik/edit/{id}")
+    public String updateRadnik(@PathVariable Long id, Radnik radnik) {
+        radnikService.updateRadnik(id, radnik);
         return "redirect:/listRadnik";
     }
 }
