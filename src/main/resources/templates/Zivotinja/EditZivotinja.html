@@ -30,7 +30,7 @@
         <div class="form-group">
             <label for="habitat">Nastanba:</label>
             <select class="form-control" id="habitat" name="habitat"  th:field="*{nastanba}">
-                <option th:each="nastanba : ${nastanba}" th:value="${nastanba.id}" th:text="${nastanba.naziv}"></option>
+                <option th:each="nastanbe : ${nastanba}" th:value="${nastanbe.id}" th:text="${nastanbe.naziv}"></option>
             </select>
         </div>
         <div class="form-group">
@@ -44,13 +44,13 @@
         <div class="form-group">
             <label for="species">Vrsta Životinje:</label>
             <select class="form-control" id="species" name="species"  th:field="*{vrstaZivotinje}">
-                <option th:each="vrsta : ${vrsta}" th:value="${vrsta.id}" th:text="${vrsta.imeHrv}"></option>
+                <option th:each="vrste : ${vrsta}" th:value="${vrste.id}" th:text="${vrste.imeHrv}"></option>
             </select>
         </div>
         <div class="form-group">
             <label for="origin">Porijeklo Životinje:</label>
             <select class="form-control" id="origin" name="origin"  th:field="*{porijekloZivotinje}">
-                <option th:each="porijeklo : ${porijeklo}" th:value="${porijeklo.id}" th:text="${porijeklo.naziv}"></option>
+                <option th:each="porijekla: ${porijeklo}" th:value="${porijekla.id}" th:text="${porijekla.naziv}"></option>
             </select>
         </div>
 
