@@ -55,14 +55,14 @@ public class HranaZaZivotinjeController {
     }
 
 
-    @GetMapping("/hranaZaZivotinje")
+    @GetMapping("/listHranaZaZivotinje")
     public String getAllHranaZaZivotinje(Model model){
-        List<HranaZaZivotinje> HranaZaZivotinje = HranaZaZivotinjuService.findAll();
-        model.addAttribute("hranaZaZivotinje", HranaZaZivotinje);
+        List<HranaZaZivotinje> hranaZaZivotinje = this.hranaZaZivotinjuService.findAll();
+        model.addAttribute("hranaZaZivotinje", hranaZaZivotinje);
         return "HranaZaZivotinje/ListHranaZaZivotinje";
     }
 
-    @GetMapping("/listHranaZaZivotinje/delete/{id}")
+    @GetMapping("/hranaZaZivotinje/delete/{id}")
     public String deleteHranaZaZivotinje(@PathVariable Long id){
         hranaZaZivotinjuService.deleteHrana(id);
         return "redirect:/listHranaZaZivotinje";

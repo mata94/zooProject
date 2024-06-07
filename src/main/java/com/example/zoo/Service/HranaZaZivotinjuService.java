@@ -13,13 +13,13 @@ import java.util.List;
 public class HranaZaZivotinjuService {
 
     @Autowired
-    static HranaZaZivotinjeRepository hranaZaZivotinjeRepository;
+    private HranaZaZivotinjeRepository hranaZaZivotinjeRepository;
 
     @Autowired
     private DobavljacRepository dobavljacRepository;
 
-    public static List<HranaZaZivotinje> findAll() {
-        return hranaZaZivotinjeRepository.findAll();
+    public List<HranaZaZivotinje> findAll() {
+        return this.hranaZaZivotinjeRepository.findAll();
     }
 
 
@@ -36,7 +36,7 @@ public class HranaZaZivotinjuService {
     }
 
     public void deleteHrana(Long id) {
-        hranaZaZivotinjeRepository.deleteById(id);
+        this.hranaZaZivotinjeRepository.deleteById(id);
     }
 
 }
