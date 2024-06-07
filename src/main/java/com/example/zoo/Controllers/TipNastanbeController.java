@@ -38,7 +38,7 @@ public class TipNastanbeController {
     public String getAllTipNastanbe(Model model){
         List<TipNastanbe> tipNastanbe = tipNastanbeService.findAll();
         model.addAttribute("tipNastanbe", tipNastanbe);
-        return "TipNastanbe/listTipNastanbe";
+        return "TipNastanbe/ListTipNastanbe";
     }
 
     @GetMapping("/listTipNastanbe/delete/{id}")
