@@ -76,6 +76,7 @@ public class Zivotinja {
         return skupZivotinja;
     }
 
+
     public void setSkupZivotinja(boolean skupZivotinja) {
         this.skupZivotinja = skupZivotinja;
     }
@@ -128,4 +129,6 @@ public class Zivotinja {
     public void setDolazakZivotinje(Date dolazakZivotinje) {
         this.dolazakZivotinje = dolazakZivotinje;
     }
+
+
 }

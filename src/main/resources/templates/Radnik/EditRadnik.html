@@ -11,11 +11,11 @@
     <form th:action="@{/listRadnik/edit/{id}(id=${radnik.id})}" th:object="${radnik}" method="post">
         <div class="form-group">
             <label for="ime">Ime:</label>
-            <input type="text" id="ime" th:field="*{radnik.ime}" class="form-control" />
+            <input type="text" id="ime" th:field="*{ime}" class="form-control" />
         </div>
         <div class="form-group">
             <label for="prezime">Prezime::</label>
-            <input type="text" id="prezime" th:field="*{radnik.prezime}" class="form-control"/>
+            <input type="text" id="prezime" th:field="*{prezime}" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="kvalifikacija">Kvalifikacija:</label>

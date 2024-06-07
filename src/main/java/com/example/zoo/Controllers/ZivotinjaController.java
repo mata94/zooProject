@@ -1,13 +1,13 @@
 package com.example.zoo.Controllers;
 
 import com.example.zoo.Service.*;
-import com.example.zoo.models.HranjenjeZivotinje;
-import com.example.zoo.models.Incident;
-import com.example.zoo.models.Zivotinja;
+import com.example.zoo.models.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -91,6 +91,28 @@ public class ZivotinjaController {
     public String allCurrentAnimals(Model model){
         model.addAttribute("zivotinje",this.zivotinjaService.findAllCurrentAnimals());
         return "Zivotinja/ListZivotinja";
+    }
+    @GetMapping("/listZivotinja/edit/{id}")
+    public String showUpdateZivotinjaForm(@PathVariable Long id, Model model) {
+        Zivotinja zivotinja = zivotinjaService.findById(id).orElseThrow(() -> new EntityNotFoundException("Zivotinja sa ID-om " + id + " nije pronađena"));
+        model.addAttribute("zivotinja", zivotinja);
+
+        List<Nastanba> nastanba = nastanbaService.findAll();
+        model.addAttribute("nastanba", nastanba);
+
+        List<PorijekloZivotinje> porijeklo = porijekloZivotinjeService.findAll();
+        model.addAttribute("porijeklo", porijeklo);
+
+        List<VrstaZivotinje> vrsta = vrstaZivotinjeService.findAll();
+        model.addAttribute("vrsta", vrsta);
+
+        return "Zivotinja/EditZivotinja";
+    }
+
+    @PostMapping("/listZivotinja/edit/{id}")
+    public String updateZivotinja(@PathVariable Long id, @ModelAttribute Zivotinja zivotinja) {
+        zivotinjaService.updateZivotinja(id, zivotinja);
+        return "redirect:/listZivotinja";
     }
 }
 

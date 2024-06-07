@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIT ZIVOTINJA</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Uredi životinju</h1>
+    <form th:action="@{/listZivotinja/edit/{id}(id=${zivotinja.id})}" th:object="${zivotinja}" method="post">
+
+        <div class="form-group">
+            <label for="naziv">Naziv:</label>
+            <input type="text" id="naziv" th:field="*{naziv}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="identifier">Indentifikator:</label>
+            <input type="number" class="form-control" id="identifier" name="identifier"  th:field="*{identifikator}">
+        </div>
+
+        <div class="form-group">
+            <label for="group">Skup Životinja:</label>
+            <input type="checkbox" class="form-check-input" id="group" name="group"  th:field="*{skupZivotinja}">
+        </div>
+        <div class="form-group">
+            <label for="number">Broj Životinja:</label>
+            <input type="number" class="form-control" id="number" name="number"  th:field="*{brojZivotinja}">
+        </div>
+        <div class="form-group">
+            <label for="habitat">Nastanba:</label>
+            <select class="form-control" id="habitat" name="habitat"  th:field="*{nastanba}">
+                <option th:each="nastanba : ${nastanbe}" th:value="${nastanba.id}" th:text="${nastanba.naziv}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="existence">Postojanje Životinje:</label>
+            <input type="checkbox" class="form-check-input" id="existence" name="existence"  th:field="*{postojanjeZivotinje}">
+        </div>
+        <div class="form-group">
+            <label for="arrival">Dolazak Životinje:</label>
+            <input type="date" class="form-control" id="arrival" name="arrival"  th:field="*{dolazakZivotinje}">
+        </div>
+        <div class="form-group">
+            <label for="species">Vrsta Životinje:</label>
+            <select class="form-control" id="species" name="species"  th:field="*{vrstaZivotinje}">
+                <option th:each="vrsta : ${vrsteZivotinje}" th:value="${vrsta.id}" th:text="${vrsta.imeHrv}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="origin">Porijeklo Životinje:</label>
+            <select class="form-control" id="origin" name="origin"  th:field="*{porijekloZivotinje}">
+                <option th:each="porijeklo : ${porijekloZivotinje}" th:value="${porijeklo.id}" th:text="${porijeklo.naziv}"></option>
+            </select>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Spremi</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,11 +1,12 @@
 package com.example.zoo.Service;
 
-import com.example.zoo.models.Nastanba;
 import com.example.zoo.models.Zivotinja;
 import com.example.zoo.repository.ZivotinjaRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ZivotinjaService {
@@ -42,4 +43,28 @@ public class ZivotinjaService {
     public List<Zivotinja>findAllCurrentAnimals(){
         return this.zivotinjaRepository.findAllCurrentAnimals(true);
     }
+
+
+    public Zivotinja updateZivotinja(Long id , Zivotinja novaZivotinja){
+        Zivotinja zivotinja =zivotinjaRepository.findById(id)
+                .orElseThrow(()-> new EntityNotFoundException("Zivotinja sa ID-om " + id + "nije pronađena"));
+
+        zivotinja.setNaziv(novaZivotinja.getNaziv());
+        zivotinja.setIdentifikator(novaZivotinja.getIdentifikator());
+        zivotinja.setSkupZivotinja(novaZivotinja.isSkupZivotinja());
+        zivotinja.setBrojZivotinja(novaZivotinja.getBrojZivotinja());
+        zivotinja.setNastanba(novaZivotinja.getNastanba());
+        zivotinja.setPostojanjeZivotinje(novaZivotinja.isPostojanjeZivotinje());
+        zivotinja.setDolazakZivotinje(novaZivotinja.getDolazakZivotinje());
+        zivotinja.setPorijekloZivotinje(novaZivotinja.getPorijekloZivotinje());
+
+
+        return zivotinjaRepository.save(zivotinja);
+    }
+
+
+    public Optional<Zivotinja> findById(Long id) { return zivotinjaRepository.findById(id);}
+
+
+
 }
