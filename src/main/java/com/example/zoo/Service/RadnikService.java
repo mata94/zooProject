@@ -8,6 +8,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.Optional;
 import java.time.LocalTime;
 import java.util.Date;
@@ -49,9 +50,12 @@ public class RadnikService {
     }
 
     public List<Radnik> pronadjiSlobodneRadnike() {
-        LocalTime currentTime = LocalTime.now();
         Date currentDate = new Date();
-        return this.radnikRepository.pronadjiSlobodneRadnike(currentTime, currentDate);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(currentDate);
+        cal.add(Calendar.DAY_OF_MONTH, 7);
+        Date endDate = cal.getTime();
+        return this.radnikRepository.pronadjiSlobodneRadnike(currentDate, endDate);
     }
 
     public void deleteRadnik(Long id) {

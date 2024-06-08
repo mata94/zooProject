@@ -67,4 +67,11 @@ public class HranaZaZivotinjeController {
         hranaZaZivotinjuService.deleteHrana(id);
         return "redirect:/listHranaZaZivotinje";
     }
+
+
+    @GetMapping("/troskoviHrane")
+    public String sviTroskoviHrane(Model model){
+        model.addAttribute("troskovi",this.hranaZaZivotinjuService.mjesecniTroskovi());
+        return"HranaZaZivotinje/mjesecniTroskovi";
+    }
 }

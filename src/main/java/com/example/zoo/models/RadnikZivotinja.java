@@ -17,6 +17,8 @@ public class RadnikZivotinja {
     private Zivotinja zivotinja;
     private float cijena;
 
+
+
     public RadnikZivotinja(){}
 
     public RadnikZivotinja(Long id, String opis, Radnik radnik, Zivotinja zivotnja, float cijena) {

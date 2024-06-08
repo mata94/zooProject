@@ -1,6 +1,9 @@
 package com.example.zoo.models;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 @Entity
 public class RadnikZaZivoitnju {
@@ -17,12 +20,20 @@ public class RadnikZaZivoitnju {
     @JoinColumn(name = "zivotinja_id")
     private Zivotinja zivotinja;
 
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
+    private Date datumOd;
+
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
+    private Date datumDo;
+
     public RadnikZaZivoitnju(){}
 
-    public RadnikZaZivoitnju(Long id, Radnik radnik, Zivotinja zivotinja) {
+    public RadnikZaZivoitnju(Long id, Radnik radnik, Zivotinja zivotinja, Date datumOd, Date datumDo) {
         this.id = id;
         this.radnik = radnik;
         this.zivotinja = zivotinja;
+        this.datumOd = datumOd;
+        this.datumDo = datumDo;
     }
 
     public Long getId() {
@@ -47,5 +58,21 @@ public class RadnikZaZivoitnju {
 
     public void setZivotinja(Zivotinja zivotinja) {
         this.zivotinja = zivotinja;
+    }
+
+    public Date getDatumOd() {
+        return datumOd;
+    }
+
+    public void setDatumOd(Date datumOd) {
+        this.datumOd = datumOd;
+    }
+
+    public Date getDatumDo() {
+        return datumDo;
+    }
+
+    public void setDatumDo(Date datumDo) {
+        this.datumDo = datumDo;
     }
 }

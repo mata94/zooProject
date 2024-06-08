@@ -9,9 +9,13 @@ public class HranjenjeZivotinje{
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToOne
-    @JoinColumn(name="radnikZaZivotinju_id")
-    private RadnikZaZivoitnju radnikZaZivoitnju;
+    @ManyToOne()
+    @JoinColumn(name = "radnik_id")
+    private Radnik radnik;
+
+    @ManyToOne()
+    @JoinColumn(name = "zivotinja_id")
+    private Zivotinja zivotinja;
     private LocalDate datumHranjenja;
     private LocalTime vrijemeHranjenja;
 
@@ -22,8 +26,9 @@ public class HranjenjeZivotinje{
 
     }
 
-    public HranjenjeZivotinje(RadnikZaZivoitnju radnikZaZivoitnju, LocalDate datumHranjenja) {
-        this.radnikZaZivoitnju = radnikZaZivoitnju;
+    public HranjenjeZivotinje(Zivotinja zivotinja,Radnik radnik,LocalDate datumHranjenja) {
+        this.zivotinja = zivotinja;
+        this.radnik = radnik;
         this.datumHranjenja = datumHranjenja;
         this.nahranjena = false;
     }
@@ -36,12 +41,20 @@ public class HranjenjeZivotinje{
         this.id = id;
     }
 
-    public RadnikZaZivoitnju getRadnikZaZivoitnju() {
-        return radnikZaZivoitnju;
+    public Radnik getRadnik() {
+        return radnik;
     }
 
-    public void setRadnikZaZivoitnju(RadnikZaZivoitnju radnikZaZivoitnju) {
-        this.radnikZaZivoitnju = radnikZaZivoitnju;
+    public void setRadnik(Radnik radnik) {
+        this.radnik = radnik;
+    }
+
+    public Zivotinja getZivotinja() {
+        return zivotinja;
+    }
+
+    public void setZivotinja(Zivotinja zivotinja) {
+        this.zivotinja = zivotinja;
     }
 
     public LocalDate getDatumHranjenja() {

@@ -15,9 +15,8 @@ import java.util.List;
 public interface RadnikRepository extends JpaRepository<Radnik,Long> {
 
     @Query("SELECT r FROM Radnik r INNER JOIN KalendarRadnik kr ON r.id = kr.radnik.id " +
-            "WHERE :trenutnoVrijeme BETWEEN kr.radnoVrijemeOd AND kr.radnoVrijemeDo " +
-            "AND ((kr.godisnjiOd IS NULL OR :trenutniDatum NOT BETWEEN kr.godisnjiOd AND kr.godisnjiDo) " +
-            "OR (kr.nedostupnostOd IS NULL OR :trenutniDatum NOT BETWEEN kr.nedostupnostOd AND kr.nedostupnostDo))")
-    public List<Radnik> pronadjiSlobodneRadnike(@Param("trenutnoVrijeme") LocalTime trenutnoVrijeme,
-                                                @Param("trenutniDatum") Date trenutniDatum);
+            "WHERE (kr.godisnjiOd IS NULL OR :zadnjiDatum < kr.godisnjiOd OR :trenutniDatum > kr.godisnjiDo) " +
+            "AND (kr.nedostupnostOd IS NULL OR :zadnjiDatum < kr.nedostupnostOd OR :trenutniDatum > kr.nedostupnostDo)")
+    public List<Radnik> pronadjiSlobodneRadnike(@Param("trenutniDatum") Date trenutniDatum,
+                                                @Param("zadnjiDatum") Date zadnjiDatum);
 }

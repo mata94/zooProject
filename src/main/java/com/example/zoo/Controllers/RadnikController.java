@@ -71,6 +71,12 @@ public class RadnikController {
         return "Radnik/createKalendarRada";
     }
 
+    @GetMapping("/radnikZaZivotinju/deleteAll")
+    public String deleteAllRadnikZaZivotinju(){
+        this.radnikZaZivotinjuService.deleteAll();
+        return "redirect:/radnikZaZivotinju";
+    }
+
     @PostMapping("/radnik/kaldendarRada")
     public String createKalendarRadnik(KalendarRadnik kalendarRadnik)
     {

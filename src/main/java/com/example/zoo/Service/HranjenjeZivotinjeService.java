@@ -29,8 +29,12 @@ public class HranjenjeZivotinjeService {
         LocalDate today = LocalDate.now();
         List<RadnikZaZivoitnju> radnikZaZivoitnje = this.radnikZaZivotinjuRepository.findAll();
 
-        for (RadnikZaZivoitnju radnik : radnikZaZivoitnje) {
-            HranjenjeZivotinje hranjenjeZivotinje = new HranjenjeZivotinje(radnik, today);
+        for (RadnikZaZivoitnju radnikZivotinja : radnikZaZivoitnje) {
+            HranjenjeZivotinje hranjenjeZivotinje = new HranjenjeZivotinje(
+                    radnikZivotinja.getZivotinja(),
+                    radnikZivotinja.getRadnik()
+                    ,today);
+
             hranjenjeZivotinjeRepository.save(hranjenjeZivotinje);
         }
     }

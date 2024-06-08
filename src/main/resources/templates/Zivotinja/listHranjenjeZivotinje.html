@@ -23,8 +23,8 @@
         <tbody>
         <tr th:each="hranjenje : ${hranjenja}">
             <td th:text="${hranjenje.id}"></td>
-            <td th:text="${hranjenje.radnikZaZivoitnju.radnik.ime}"></td>
-            <td th:text="${hranjenje.radnikZaZivoitnju.zivotinja.naziv}"></td>
+            <td th:text="${hranjenje.radnik.ime}"></td>
+            <td th:text="${hranjenje.zivotinja.naziv}"></td>
             <td th:text="${hranjenje.datumHranjenja}"></td>
             <td th:text="${hranjenje.vrijemeHranjenja}"></td>
             <td th:text="${hranjenje.nahranjena ? 'Da' : 'Ne'}"></td>
@@ -36,4 +36,6 @@
         </tr>
         </tbody>
     </table>
-</
+</div>
+</body>>
+</html>

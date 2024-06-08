@@ -1,5 +1,6 @@
 package com.example.zoo.Service;
 
+import com.example.zoo.modelBuilder.MjesecniTroskovi;
 import com.example.zoo.models.Dobavljac;
 import com.example.zoo.models.HranaZaZivotinje;
 import com.example.zoo.repository.DobavljacRepository;
@@ -39,4 +40,7 @@ public class HranaZaZivotinjuService {
         this.hranaZaZivotinjeRepository.deleteById(id);
     }
 
+    public List<MjesecniTroskovi> mjesecniTroskovi(){
+        return this.hranaZaZivotinjeRepository.mjesecniTroskovi();
+    }
 }
