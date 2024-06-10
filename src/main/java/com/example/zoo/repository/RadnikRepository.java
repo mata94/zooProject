@@ -19,4 +19,11 @@ public interface RadnikRepository extends JpaRepository<Radnik,Long> {
             "AND (kr.nedostupnostOd IS NULL OR :zadnjiDatum < kr.nedostupnostOd OR :trenutniDatum > kr.nedostupnostDo)")
     public List<Radnik> pronadjiSlobodneRadnike(@Param("trenutniDatum") Date trenutniDatum,
                                                 @Param("zadnjiDatum") Date zadnjiDatum);
+
+
+    @Query("SELECT r FROM Radnik r INNER JOIN r.kvalifikacija k " +
+            "WHERE LOWER(k.naziv) = 'vodic' OR LOWER(k.naziv) = 'vodič'")
+    List<Radnik> pronađiVodica();
 }
+
+

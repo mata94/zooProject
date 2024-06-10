@@ -25,7 +25,7 @@ public class PosjeteController {
     public String showCreatePosjeteForm(Model model) {
         Posjete posjete = new Posjete();
         model.addAttribute("posjete", posjete);
-        List<Radnik> radnici = radnikService.findAll();
+        List<Radnik> radnici = radnikService.pronađiVodica();
         model.addAttribute("radnici", radnici);
         return "Posjeta/createPosjeta";
     }
