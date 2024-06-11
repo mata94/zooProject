@@ -65,6 +65,14 @@ public class ZivotinjaService {
 
     public Optional<Zivotinja> findById(Long id) { return zivotinjaRepository.findById(id);}
 
+    public List<Zivotinja>findAll(String search){
+        if(search == null){
+            return this.zivotinjaRepository.findAll();
+        }else{
+            return this.zivotinjaRepository.findAllSearch(search);
+        }
+    }
+
 
 
 }

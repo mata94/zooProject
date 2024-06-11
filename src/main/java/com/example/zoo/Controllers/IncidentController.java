@@ -59,5 +59,17 @@ public class IncidentController {
         incidentService.deleteIncident(id);
         return "redirect:/listIncident";
     }
+    @GetMapping("/incident/edit/{id}")
+    public String editIncidentForm(@PathVariable("id") Long id, Model model) {
+        Incident incident = incidentService.findById(id);
+        model.addAttribute("incident", incident);
+        return "incident/editIncident";
+    }
+
+    @PostMapping("/incident/edit/{id}")
+    public String editIncident(@PathVariable("id") Long id, Incident updatedIncident) {
+        incidentService.updateIncident(id, updatedIncident);
+        return "redirect:/listIncident";
+    }
 }
 

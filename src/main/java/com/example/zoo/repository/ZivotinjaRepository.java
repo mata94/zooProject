@@ -22,4 +22,12 @@ public interface ZivotinjaRepository extends JpaRepository<Zivotinja,Long> {
 
     @Query("SELECT z FROM Zivotinja z INNER JOIN z.nastanba n WHERE n =:nastanba")
     public Zivotinja provjeraNastanbe(@Param("nastanba")Nastanba nastanba);
+
+    @Query("SELECT z FROM Zivotinja z " +
+            "WHERE LOWER(z.naziv) LIKE LOWER(CONCAT(:search, '%')) " +
+            "OR STR(z.identifikator) LIKE CONCAT(:search, '%')")
+    List<Zivotinja> findAllSearch(@Param("search") String search);
+
+
 }
+

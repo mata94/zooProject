@@ -22,6 +22,7 @@ public class PosjeteService {
 
     public List<Posjete> findAll() { return this.posjeteRepository.findAll(); }
 
+
     public void deletePosjeta(Long id) { posjeteRepository.deleteById(id);}
 
     public Posjete updatePosjeta(Long id , Posjete novaPosjeta){

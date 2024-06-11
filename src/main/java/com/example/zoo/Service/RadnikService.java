@@ -36,6 +36,8 @@ public class RadnikService {
         return radnikRepository.findAll();
     }
 
+    public List<Radnik> pronađiVodica() {return radnikRepository.pronađiVodica();}
+
     public boolean provjeraSlobodnogRadnika(Radnik radnik) {
 
         LocalTime currentTime = LocalTime.now();
