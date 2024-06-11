@@ -35,7 +35,6 @@ public class IncidentController {
         Incident incident = new Incident();
         model.addAttribute("incident", incident);
 
-        // Add data needed for dropdowns
         model.addAttribute("vrstaIncidentaList", vrstaIncidentaService.findAll());
         model.addAttribute("zivotinjaList", zivotinjaService.findAll());
         model.addAttribute("nastanbaList", nastanbaService.findAll());

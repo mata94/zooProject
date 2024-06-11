@@ -43,7 +43,7 @@ public class HranaZaZivotinjeController {
     public String createHranaZaZivotinjeForm(Model model){
         model.addAttribute("hranaZaZivotinje",new HranaZaZivotinje());
         model.addAttribute("dobavljaci",this.hranaZaZivotinjuService.pronadjiSveDobavljace());
-        model.addAttribute("zivotinje",this.zivotinjaService.findAll());
+        model.addAttribute("zivotinje",this.zivotinjaService.findAllCurrentAnimals());
 
         return "HranaZaZivotinje/createHranaZaZivotinje";
     }
