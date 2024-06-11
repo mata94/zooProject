@@ -29,6 +29,7 @@
             <td th:text="${hranaZaZivotinje.datum}"></td>
 
             <td>
+                <a th:href="@{/hranaZaZivotinje/edit/{id}(id=${hranaZaZivotinje.id})}" class="btn btn-warning btn-sm">Edit</a>
                 <a th:href="@{/hranaZaZivotinje/delete/{id}(id=${hranaZaZivotinje.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
             </td>
         </tr>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HranaZaZivotinjuService {
@@ -43,4 +44,9 @@ public class HranaZaZivotinjuService {
     public List<MjesecniTroskovi> mjesecniTroskovi(){
         return this.hranaZaZivotinjeRepository.mjesecniTroskovi();
     }
+
+    public Optional<HranaZaZivotinje> findById(Long id) {
+        return this.hranaZaZivotinjeRepository.findById(id);
+    }
+
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HranaZaZivotinjeController {
@@ -73,5 +74,22 @@ public class HranaZaZivotinjeController {
     public String sviTroskoviHrane(Model model){
         model.addAttribute("troskovi",this.hranaZaZivotinjuService.mjesecniTroskovi());
         return"HranaZaZivotinje/mjesecniTroskovi";
+    }
+    @GetMapping("/listHranaZaZivotinje/edit/{id}")
+    public String editHranaZaZivotinjeForm(@PathVariable Long id, Model model) {
+        Optional<HranaZaZivotinje> hranaZaZivotinje = hranaZaZivotinjuService.findById(id);
+        if (hranaZaZivotinje.isEmpty()) {
+        }
+        model.addAttribute("hranaZaZivotinje", hranaZaZivotinje.get());
+        model.addAttribute("dobavljaci", this.hranaZaZivotinjuService.pronadjiSveDobavljace());
+        model.addAttribute("zivotinje", this.zivotinjaService.findAllCurrentAnimals());
+        return "HranaZaZivotinje/editHranaZaZivotinje";
+    }
+
+    @PostMapping("/listHranaZaZivotinje/edit/{id}")
+    public String updateHranaZaZivotinje(@PathVariable Long id, HranaZaZivotinje hranaZaZivotinje) {
+        hranaZaZivotinje.setId(id);
+        this.hranaZaZivotinjuService.save(hranaZaZivotinje);
+        return "redirect:/listHranaZaZivotinje";
     }
 }
