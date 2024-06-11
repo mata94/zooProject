@@ -13,6 +13,8 @@ public class Zivotinja {
     private Long id;
 
     private String naziv;
+
+
     private Integer identifikator;
     private boolean skupZivotinja;
     private Integer brojZivotinja;

@@ -9,6 +9,14 @@
 <div class="container">
     <h1 class="my-4">Lista zivotinja</h1>
     <table class="table table-striped">
+        <form th:action="@{/listZivotinja}" method="get">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search" placeholder="Traži Zivotinju">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Traži</button>
+                </div>
+            </div>
+        </form>
         <a href="/zivotinja" class="btn btn-primary" style="float: right; margin-bottom: 10px;">DODAJ ŽIVOTINJU </a>
         <thead>
         <tr>
