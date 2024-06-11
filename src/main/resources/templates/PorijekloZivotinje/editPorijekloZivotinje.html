@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Uredi Porijeklo Životinje</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-
+<div class="container">
+    <h2 class="mt-5">Uredi Porijeklo Životinje</h2>
+    <form th:action="@{/listPorijekloZivotinje/edit/{id}(id=${porijeklo.id})}" th:object="${porijeklo}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="naziv">Naziv:</label>
+            <input type="text" id="naziv" th:field="*{naziv}" class="form-control" placeholder="Unesite naziv" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Spremi</button>
+        <a href="/listPorijekloZivotinje" class="btn btn-secondary">Odustani</a>
+    </form>
+</div>
 </body>
 </html>

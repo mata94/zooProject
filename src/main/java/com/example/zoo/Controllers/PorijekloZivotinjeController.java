@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -42,6 +43,18 @@ public class PorijekloZivotinjeController {
     @GetMapping("listPorijekloZivotinje/delete/{id}")
     public String deleteOrigin(@PathVariable("id") Long id) {
         porijekloZivotinjeService.deleteById(id);
+        return "redirect:/listPorijekloZivotinje";
+    }
+    @GetMapping("/listPorijekloZivotinje/edit/{id}")
+    public String editOriginForm(@PathVariable Long id, Model model) {
+        PorijekloZivotinje porijekloZivotinje = porijekloZivotinjeService.findById(id);
+        model.addAttribute("porijeklo", porijekloZivotinje);
+        return "PorijekloZivotinje/editPorijekloZivotinje";
+    }
+
+    @PostMapping("/listPorijekloZivotinje/edit/{id}")
+    public String editOrigin(@PathVariable Long id, @ModelAttribute("porijeklo") PorijekloZivotinje porijekloZivotinje) {
+        porijekloZivotinjeService.updatePorijeklo(id, porijekloZivotinje);
         return "redirect:/listPorijekloZivotinje";
     }
 }
