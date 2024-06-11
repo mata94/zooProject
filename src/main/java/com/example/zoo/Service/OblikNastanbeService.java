@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OblikNastanbeService {
@@ -24,14 +25,15 @@ public class OblikNastanbeService {
 
     public void deleteOblikNastanbe(Long id){ oblikNastanbeRepository.deleteById(id);}
 
-    public OblikNastanbe updateOblikNastanbe(Long id , OblikNastanbe noviOblik){
-        OblikNastanbe oblikNastanbe = oblikNastanbeRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Oblik nastanbe sa ID-om" + id + "nije pronađen"));
+    public OblikNastanbe findById(Long id){
+        Optional<OblikNastanbe> optionalOblikNastanbe = oblikNastanbeRepository.findById(id);
+        return optionalOblikNastanbe.orElseThrow(() -> new EntityNotFoundException("OblikNastanbe with id " + id + " not found"));
+    }
 
-        oblikNastanbe.setNaziv(noviOblik.getNaziv());
-
-        return oblikNastanbeRepository.save(oblikNastanbe);
-
+    public OblikNastanbe updateOblikNastanbe(Long id, OblikNastanbe updatedOblik){
+        OblikNastanbe existingOblik = findById(id);
+        existingOblik.setNaziv(updatedOblik.getNaziv());
+        return oblikNastanbeRepository.save(existingOblik);
     }
 
 }
