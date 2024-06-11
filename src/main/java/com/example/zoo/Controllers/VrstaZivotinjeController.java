@@ -2,6 +2,7 @@ package com.example.zoo.Controllers;
 
 import com.example.zoo.Service.VrstaZivotinjeService;
 import com.example.zoo.models.VrstaZivotinje;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class VrstaZivotinjeController {
@@ -43,5 +45,21 @@ public class VrstaZivotinjeController {
         vrstaZivotinjeService.deleteById(id);
         return "redirect:/listVrstaZivotinje";
     }
+    @GetMapping("/listVrstaZivotinje/edit/{id}")
+    public String editVrstaForm(@PathVariable Long id, Model model) {
+        Optional<VrstaZivotinje> optionalVrsta = vrstaZivotinjeService.findById(id);
+        if (optionalVrsta.isEmpty()) {
+            throw new EntityNotFoundException("Vrsta Zivotinje sa ID-om " + id + " nije pronađena");
+        }
+        VrstaZivotinje vrsta = optionalVrsta.get();
+        model.addAttribute("vrsta", vrsta);
+        return "VrstaZivotinje/editVrsta";
+    }
 
+    @PostMapping("/listVrstaZivotinje/edit/{id}")
+    public String updateVrsta(@PathVariable Long id, VrstaZivotinje vrstaZivotinje) {
+        vrstaZivotinjeService.updateVrsta(id, vrstaZivotinje);
+        return "redirect:/listVrstaZivotinje";
+    }
 }
+
