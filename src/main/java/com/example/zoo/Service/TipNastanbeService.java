@@ -32,11 +32,20 @@ public class TipNastanbeService {
         return tipOptional.orElseThrow(() -> new EntityNotFoundException("TipNastanbe with ID " + id + " not found"));
     }
 
-    public TipNastanbe updateTipNastanbe(Long id, TipNastanbe updatedTip){
-        TipNastanbe tipNastanbe = findById(id);
-        tipNastanbe.setNaziv(updatedTip.getNaziv());
-        // If there are more fields to update, add them here
+    @Autowired
+    TipNastanbeRepository TipNastanbeRepository;
 
-        return tipNastanbeRepository.save(tipNastanbe);
+    public void updateTipNastanbe(Long id, TipNastanbe updatedTip) {
+        Optional<TipNastanbe> optionalTipNastanbe = TipNastanbeRepository.findById(id);
+        if (optionalTipNastanbe.isPresent()) {
+            TipNastanbe tipNastanbe = optionalTipNastanbe.get();
+            tipNastanbe.setNaziv(updatedTip.getNaziv());
+            // If there are more fields to update, add them here
+
+            tipNastanbeRepository.save(tipNastanbe);
+        } else {
+            // Handle case where the entity with the provided id does not exist
+            // You might throw an exception or handle it differently based on your application's logic
+        }
     }
 }
