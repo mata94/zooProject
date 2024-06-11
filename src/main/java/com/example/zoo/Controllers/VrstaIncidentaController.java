@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class VrstaIncidentaController {
@@ -43,6 +44,23 @@ public class VrstaIncidentaController {
     @GetMapping("/listVrstaIncidenta/delete/{id}")
     public String deleteIncident(@PathVariable("id") long id) {
         vrstaIncidentaService.deleteById(id);
+        return "redirect:/listVrstaIncidenta";
+    }
+    @GetMapping("/listVrstaIncidenta/edit/{id}")
+    public String editIncident(@PathVariable("id") long id, Model model) {
+        Optional<VrstaIncidenta> optionalVrstaIncidenta = vrstaIncidentaService.findById(id);
+        if (optionalVrstaIncidenta.isPresent()) {
+            model.addAttribute("vrstaIncidenta", optionalVrstaIncidenta.get());
+            return "VrstaIncidenta/editVrstaIncidenta";
+        } else {
+            return "redirect:/listVrstaIncidenta";
+        }
+    }
+
+    @PostMapping("/listVrstaIncidenta/edit/{id}")
+    public String updateIncident(@PathVariable("id") long id, VrstaIncidenta vrstaIncidenta) {
+        vrstaIncidenta.setId(id);
+        vrstaIncidentaService.createVrstaIncidenta(vrstaIncidenta);
         return "redirect:/listVrstaIncidenta";
     }
 }
