@@ -2,6 +2,7 @@ package com.example.zoo.Controllers;
 
 import com.example.zoo.Service.KvalifikacijaService;
 import com.example.zoo.models.Kvalifikacija;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,5 +47,17 @@ public class KvalifikacijaController {
         return "redirect:/listKvalifikacija";
     }
 
+    @GetMapping("/listKvalifikacija/edit/{id}")
+    public String editKvalifikacijaForm(@PathVariable Long id, Model model) {
+        Kvalifikacija kvalifikacija = kvalifikacijaService.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Kvalifikacija with id " + id + " not found"));
+        model.addAttribute("kvalifikacija", kvalifikacija);
+        return "Kvalifikacija/editKvalifikacija";
+    }
 
+    @PostMapping("/listKvalifikacija/edit/{id}")
+    public String updateKvalifikacija(@PathVariable Long id, Kvalifikacija kvalifikacija) {
+        kvalifikacijaService.updateKvalifikacija(id, kvalifikacija);
+        return "redirect:/listKvalifikacija";
+    }
 }
