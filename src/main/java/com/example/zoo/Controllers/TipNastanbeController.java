@@ -7,10 +7,7 @@ import com.example.zoo.models.TipNastanbe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,6 +43,18 @@ public class TipNastanbeController {
         tipNastanbeService.deleteTipNastanbe(id);
         return "redirect:/listTipNastanbe";
 
+    }
+    @GetMapping("/listTipNastanbe/edit/{id}")
+    public String editTipNastanbeForm(@PathVariable Long id, Model model){
+        TipNastanbe tipNastanbe = tipNastanbeService.findById(id);
+        model.addAttribute("tip", tipNastanbe);
+        return "TipNastanbe/editTipNastanbe"; // Assuming you have an editTipNastanbe HTML template
+    }
+
+    @PostMapping("/listTipNastanbe/edit/{id}")
+    public String editTipNastanbe(@PathVariable Long id, @ModelAttribute("tip") TipNastanbe tipNastanbe){
+        tipNastanbeService.updateTipNastanbe(id, tipNastanbe);
+        return "redirect:/listTipNastanbe";
     }
 
 

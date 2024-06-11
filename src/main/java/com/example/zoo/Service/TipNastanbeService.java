@@ -27,14 +27,16 @@ public class TipNastanbeService {
 
     public void deleteTipNastanbe(Long id){ tipNastanbeRepository.deleteById(id);}
 
-    public TipNastanbe updateTipNastanbe(Long id , TipNastanbe noviTip){
-        TipNastanbe tipNastanbe = tipNastanbeRepository.findById(id)
-                .orElseThrow(()-> new EntityNotFoundException("Tip nastanbe sa ID-om" + id + "nije pronađen"));
-
-        tipNastanbe.setNaziv(noviTip.getNaziv());
-
-        return tipNastanbeRepository.save(tipNastanbe);
-
+    public TipNastanbe findById(Long id){
+        Optional<TipNastanbe> tipOptional = tipNastanbeRepository.findById(id);
+        return tipOptional.orElseThrow(() -> new EntityNotFoundException("TipNastanbe with ID " + id + " not found"));
     }
 
+    public TipNastanbe updateTipNastanbe(Long id, TipNastanbe updatedTip){
+        TipNastanbe tipNastanbe = findById(id);
+        tipNastanbe.setNaziv(updatedTip.getNaziv());
+        // If there are more fields to update, add them here
+
+        return tipNastanbeRepository.save(tipNastanbe);
+    }
 }

@@ -22,6 +22,7 @@
             <td th:text="${tipNastanbe.id}">ID</td>
             <td th:text="${tipNastanbe.naziv}">Naziv</td>
             <td>
+                <a th:href="@{/listTipNastanbe/edit/{id}(id=${tipNastanbe.id})}" class="btn btn-warning btn-sm">Edit</a>
                 <a th:href="@{/listTipNastanbe/delete/{id}(id=${tipNastanbe.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Jeste li sigurni da želite izbrisati?');">Delete</a>
             </td>
         </tr>
