@@ -48,7 +48,7 @@ public class TipNastanbeController {
     public String editTipNastanbeForm(@PathVariable Long id, Model model){
         TipNastanbe tipNastanbe = tipNastanbeService.findById(id);
         model.addAttribute("tip", tipNastanbe);
-        return "TipNastanbe/editTipNastanbe"; // Assuming you have an editTipNastanbe HTML template
+        return "TipNastanbe/editTipNastanbe";
     }
 
     @PostMapping("/listTipNastanbe/edit/{id}")

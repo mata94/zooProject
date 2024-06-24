@@ -50,7 +50,7 @@ public class OblikNastanbeController {
     public String editOblikNastanbeForm(@PathVariable Long id, Model model){
         OblikNastanbe oblikNastanbe = oblikNastanbeService.findById(id);
         model.addAttribute("oblik", oblikNastanbe);
-        return "OblikNastanbe/editOblikNastanbe"; // Assuming you have an EditOblik HTML template
+        return "OblikNastanbe/editOblikNastanbe";
     }
 
     @PostMapping("/listOblikNastanbe/edit/{id}")

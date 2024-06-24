@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h2 class="mt-5">Uredi Tip Nastanbe</h2>
-    <form th:action="@{/ListTipNastanbe/edit/{id}(id=${tipNastanbe.id})}" th:object="${tipNastanbe}" method="post">
+    <form th:action="@{/listTipNastanbe/edit/{id}(id=${tip.id})}" th:object="${tip}" method="post">
         <input type="hidden" th:field="*{id}">
         <div class="form-group">
             <label for="naziv">Naziv:</label>

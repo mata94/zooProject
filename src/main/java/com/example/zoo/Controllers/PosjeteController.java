@@ -59,7 +59,7 @@ public class PosjeteController {
     public String showUpdatePosjetaForm(@PathVariable Long id, Model model) {
         Posjete posjeta = posjeteService.findById(id).orElseThrow(() -> new EntityNotFoundException("Posjeta sa ID-om " + id + " nije pronađena"));
         model.addAttribute("posjeta", posjeta);
-        List<Radnik> radnici = radnikService.findAll();
+        List<Radnik> radnici = radnikService.pronađiVodica();
         model.addAttribute("radnici", radnici);
         return "Posjeta/EditPosjeta";
     }

@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h1 class="my-4">Uređivanje Hrane za životinje</h1>
-    <form th:action="@{/hranaZaZivotinje/edit/{id}(id=${hranaZaZivotinje.id})}" method="post">
+    <form th:action="@{/listHranaZaZivotinje/edit/{id}(id=${hranaZaZivotinje.id})}" method="post">
         <div class="form-group">
             <label for="zivotinja">Životinja:</label>
             <select class="form-control" id="zivotinja" name="zivotinja">

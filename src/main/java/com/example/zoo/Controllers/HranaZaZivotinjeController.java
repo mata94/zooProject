@@ -78,8 +78,7 @@ public class HranaZaZivotinjeController {
     @GetMapping("/listHranaZaZivotinje/edit/{id}")
     public String editHranaZaZivotinjeForm(@PathVariable Long id, Model model) {
         Optional<HranaZaZivotinje> hranaZaZivotinje = hranaZaZivotinjuService.findById(id);
-        if (hranaZaZivotinje.isEmpty()) {
-        }
+
         model.addAttribute("hranaZaZivotinje", hranaZaZivotinje.get());
         model.addAttribute("dobavljaci", this.hranaZaZivotinjuService.pronadjiSveDobavljace());
         model.addAttribute("zivotinje", this.zivotinjaService.findAllCurrentAnimals());
