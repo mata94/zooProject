@@ -24,7 +24,7 @@ public class HranjenjeZivotinjeService {
         this.hranjenjeZivotinjeRepository.save(hranjenjeZivotinje);
     }
 
-    @Scheduled(cron = "0 22 20 * * *")
+    @Scheduled(cron = "0 03 15 * * *")
     public void scheduleHranjenje() {
         LocalDate today = LocalDate.now();
         List<RadnikZaZivoitnju> radnikZaZivoitnje = this.radnikZaZivotinjuRepository.findAll();

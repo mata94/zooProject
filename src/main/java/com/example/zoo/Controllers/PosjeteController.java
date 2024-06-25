@@ -25,21 +25,15 @@ public class PosjeteController {
     public String showCreatePosjeteForm(Model model) {
         Posjete posjete = new Posjete();
         model.addAttribute("posjete", posjete);
-        List<Radnik> radnici = radnikService.pronađiVodica();
+        List<Radnik> radnici = radnikService.pronadjiVodica();
         model.addAttribute("radnici", radnici);
         return "Posjeta/createPosjeta";
     }
 
     @PostMapping("/unosPosjete")
     public String createPosjete(@ModelAttribute Posjete posjete) {
-
-        if(this.radnikService.provjeraSlobodnogRadnika(posjete.getRadnik()))
-        {
-            posjeteService.save(posjete);
-            return "redirect:/unosPosjete";
-        }else{
-            throw new RuntimeException("Radnik je zauzet.");
-        }
+        posjeteService.save(posjete);
+        return "redirect:/unosPosjete";
     }
 
     @GetMapping("/listPosjeta")
@@ -59,7 +53,7 @@ public class PosjeteController {
     public String showUpdatePosjetaForm(@PathVariable Long id, Model model) {
         Posjete posjeta = posjeteService.findById(id).orElseThrow(() -> new EntityNotFoundException("Posjeta sa ID-om " + id + " nije pronađena"));
         model.addAttribute("posjeta", posjeta);
-        List<Radnik> radnici = radnikService.pronađiVodica();
+        List<Radnik> radnici = radnikService.pronadjiVodica();
         model.addAttribute("radnici", radnici);
         return "Posjeta/EditPosjeta";
     }

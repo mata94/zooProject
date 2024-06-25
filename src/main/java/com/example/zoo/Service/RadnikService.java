@@ -36,13 +36,12 @@ public class RadnikService {
         return radnikRepository.findAll();
     }
 
-    public List<Radnik> pronađiVodica() {return radnikRepository.pronađiVodica();}
+    public List<Radnik> pronadjiVodica() {return radnikRepository.pronadjiVodica();}
 
     public boolean provjeraSlobodnogRadnika(Radnik radnik) {
 
-        LocalTime currentTime = LocalTime.now();
         Date currentDate = new Date();
-        KalendarRadnik kalendarRadnik = this.kalendarRadnikRepository.provjeraSlobodnogRadnika(radnik, currentTime, currentDate);
+        KalendarRadnik kalendarRadnik = this.kalendarRadnikRepository.provjeraSlobodnogRadnika(radnik,currentDate);
 
         if (kalendarRadnik == null) {
             return true;
